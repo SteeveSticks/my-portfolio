@@ -2,6 +2,7 @@ import Image from "next/image";
 import React from "react";
 import { Button } from "./ui/button";
 import { Dot } from "lucide-react";
+import StackLoop from "./StackLoop";
 
 const Hero = () => {
   return (
@@ -10,7 +11,7 @@ const Hero = () => {
         <div className="inline-flex items-center justify-center">
           <Image
             src="/img/profile-image.jpg"
-            className="rounded-full"
+            className="rounded-full mt-6"
             alt="profile logo"
             width={114}
             height={30}
@@ -18,7 +19,7 @@ const Hero = () => {
         </div>
 
         <div className="">
-          <h1 className="font-bold leading-14 text-[56px] mt-4">
+          <h1 className="font-bold leading-14 text-[56px] mt-6">
             Hi, I&apos;m Adebanjo Stephen.
             <br /> Software Engineer
           </h1>
@@ -39,6 +40,7 @@ const Hero = () => {
           </div>
         </div>
       </section>
+      <StackLoop />
     </div>
   );
 };
