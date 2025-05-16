@@ -22,8 +22,10 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={`${geistSans.variable} antialiased`}>
-        <Navbar />
-        {children}
+        <main className="font-sans border-b border-l border-r max-w-3xl mx-auto">
+          <Navbar />
+          {children}
+        </main>
       </body>
     </html>
   );

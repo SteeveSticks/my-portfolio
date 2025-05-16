@@ -1,9 +1,12 @@
+"use client";
+
 import React from "react";
 import { projects } from "../../_data/data";
 import Image from "next/image";
 import { Button } from "./ui/button";
 import { ArrowRightIcon } from "lucide-react";
 import Link from "next/link";
+import { motion } from "framer-motion";
 
 const Project = () => {
   return (
@@ -33,10 +36,12 @@ const Project = () => {
                 <p className="text-base text-wrap prose font-light text-gray-700 line-clamp-2 mt-4 flex-grow">
                   {data.desc}
                 </p>
-                <Link href="" className="">
-                  <Button className="!cursor-pointer mt-4 !bg-gray-200 hover:!bg-gray-200/80">
-                    View Project <ArrowRightIcon />
-                  </Button>
+                <Link href={`/project/${data.slug}`} className="">
+                  <motion.div whileHover={{ x: 5 }}>
+                    <Button className="!cursor-pointer mt-4 !bg-gray-200 hover:!bg-gray-200/80 space-x-3 transition-colors">
+                      View Project <ArrowRightIcon />
+                    </Button>
+                  </motion.div>
                 </Link>
               </div>
             </div>

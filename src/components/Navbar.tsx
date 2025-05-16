@@ -11,7 +11,7 @@ const Navbar = () => {
       <nav className="max-w-[586px] mx-auto bg-black/85 flex justify-between items-center py-2 px-4 rounded-full border outline-none shadow-md fixed left-0 right-0 ">
         <div>
           <Link href="/">
-            <img src="img/brandLogo.png" alt="Brand Logo" />
+            <img src="/img/brandLogo.png" alt="Brand Logo" />
           </Link>
         </div>
 
