@@ -77,6 +77,7 @@ const ProjectPage = ({ params }: { params: { slug: string } }) => {
             alt={project.name}
             width={900}
             height={900}
+            className="rounded-sm"
           />
         </div>
       </div>
