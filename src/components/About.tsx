@@ -7,7 +7,7 @@ import { motion } from "framer-motion";
 
 const About = () => {
   return (
-    <div className="py-20 mt-10">
+    <div className="py-30 mt-10">
       <div className="max-w-2xl grid items-center justify-start text-wrap mx-auto prose">
         <div className="">
           <div className="font-bold text-3xl text-black/90">About</div>

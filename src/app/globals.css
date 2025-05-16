@@ -8,8 +8,13 @@
   --font-sans: var(--font-giest-sans);
 }
 
+html {
+  scrollbar-color: rgb(0, 0, 0, 0.4) rgb(0, 0, 0, 0);
+  scrollbar-width: thin;
+}
+
 body {
-  scroll-behaviour: auto;
+  scroll-behavior: smooth;
   overflow-x: hidden;
   overflow-y: scroll;
 }
