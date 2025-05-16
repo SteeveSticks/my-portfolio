@@ -24,12 +24,12 @@ const Navbar = () => {
             </li>
             <li>
               <Button variant="link">
-                <Link href="/">Projects</Link>
+                <Link href="/projects">Projects</Link>
               </Button>
             </li>
             <li>
               <Button variant="link">
-                <Link href="/">Experience</Link>
+                <Link href="/experience">Experience</Link>
               </Button>
             </li>
           </ul>
@@ -57,7 +57,7 @@ const Navbar = () => {
 
           <div className="border-l">
             <Button className="ml-2">
-              <Link href="/">Contact</Link>
+              <Link href="/contact">Contact</Link>
             </Button>
           </div>
         </div>

@@ -31,7 +31,7 @@ const About = () => {
           <p className="mt-2">
             I’m also actively building my presence in the tech community. With
             over <strong>140+ followers on X, </strong>
-            I’ve learned from and connected with top minds, mentors in the indie
+            I’ve learned and connected with top minds, mentors in the indie
             hacker and maker space — including people like{" "}
             <Link href="https://x.com/marc_louvion">
               <strong>@Marc Lou,</strong>
@@ -52,7 +52,7 @@ const About = () => {
         </div>
       </div>
 
-      <div className="flex-center pt-2">
+      <div className="flex-center mt-6">
         <motion.div
           whileHover={{ scale: 1.05 }}
           transition={{ duration: 0.2 }}

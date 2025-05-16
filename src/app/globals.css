@@ -17,6 +17,9 @@ body {
   scroll-behavior: smooth;
   overflow-x: hidden;
   overflow-y: scroll;
+  animation: slime 45s ease infinite;
+  -webkit-animation: slime 45s ease infinite;
+  background-clip: text;
 }
 
 @theme inline {

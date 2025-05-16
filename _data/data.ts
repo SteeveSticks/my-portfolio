@@ -1,0 +1,51 @@
+export const projects = [
+  {
+    name: "Job Portal",
+    desc: "A fully responsive job platform with authentication, dashboards for job seekers and recruiters, and smooth UI/UX built with modern best practices.",
+    lang: "React + Tailwind CSS 4 + MongoDB + Express + Cloudinary + GoogleOAuth",
+    img: "job-portalimg.png",
+    link: "https://job-portal-frontend-three-orcin.vercel.app/",
+  },
+  {
+    name: "StartupFounder",
+    desc: "A beautifully designed startup platform for developers to showcase their startups and for users to discover innovative tech projects. Built using modern frameworks for performance and scalability.",
+    lang: "Next.js + TypeScript + Tailwind CSS 4 + Sanity + Sentry + Zod + NextAuth",
+    img: "startupFounderimg.png",
+    link: "https://startup-founders-app.vercel.app/",
+  },
+  {
+    name: "Bookstore App",
+    desc: "A full-stack bookstore application with user authentication, book management, and cart system. Built to reinforce backend understanding and deployment flow.",
+    lang: "React + Node.js + MongoDB + Express + Tailwind CSS 3 + Redux + Firebase",
+    img: "bookstoreimg.png",
+    link: "https://stephen-book-app.vercel.app/",
+  },
+  {
+    name: "Pentagon Tokens",
+    desc: "Diving into Web3. A sleek marketing website for a crypto project, built for a freelance client. Optimized for performance and responsiveness.",
+    lang: "React + Node.js + MongoDB + Express + Tailwind CSS 3 + Cloudinary EmailJS",
+    img: "pentagonsTokenimg.png",
+    link: "https://crypto-website-frontend-one.vercel.app/",
+  },
+  {
+    name: "TODO App",
+    desc: "A minimalistic todo app with streamlined tool designed for efficient task management, featuring a clean interface to add, edit, and complete tasks. Built with a focus on usability,",
+    lang: "React + Redux + Javascript + CSS",
+    img: "todoappimgae.png",
+    link: "https://todoapp-six-tau-67.vercel.app/",
+  },
+  {
+    name: "Silent Alarm App",
+    desc: "A silent panic button app for emergency situations. Designed for quick, discreet alerts to a trusted contact, ideal for personal safety or high-risk environments.",
+    lang: "React Native + Firebase (Auth + Firestore) + Expo + Stripe + Tailwind CSS 3",
+    img: "silentalarmimage.png",
+    link: "https://github.com/SteeveSticks/SILENT-ALARM-APP",
+  },
+  {
+    name: "HydraMind (Hackathon Project)",
+    desc: "AI-powered hydration assistant that gives personalized water intake recommendations, sends smart reminders, and adapts over time to user needs.",
+    lang: "React (TypeScript + Vite) + TanStack Router + TanStack Query + Node.js + Express + MongoDB + (better-auth)",
+    img: "hydramindappimage.png",
+    link: "https://github.com/codewithkin/hydramind",
+  },
+];

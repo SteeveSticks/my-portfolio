@@ -3,6 +3,7 @@ import React from "react";
 import { Button } from "./ui/button";
 import { Dot } from "lucide-react";
 import StackLoop from "./StackLoop";
+import Link from "next/link";
 
 const Hero = () => {
   return (
@@ -32,7 +33,7 @@ const Hero = () => {
 
         <div className="flex items-center justify-center mt-6 gap-2">
           <Button className="!bg-black/90 text-white !cursor-pointer !py-4 !px-6 hover:!bg-black/82">
-            Hire Me!
+            <Link href="/contact">Hire Me!</Link>
           </Button>
           <div className="border flex-center bg-[#E1F9DC] text-[#178D00] px-4 py-1 rounded-full">
             <Dot className="size-6" />
