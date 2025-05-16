@@ -17,7 +17,7 @@ const techStack = [
 
 const StackLoop = () => {
   return (
-    <div className="rounded-xs overflow-hidden py-1 max-w-[400px] mx-auto">
+    <div className="rounded-xs overflow-hidden py-1 max-w-[400px] mx-auto ">
       <Marquee delay={5} speed={30}>
         <div className="flex-center gap-3 mx-3">
           {techStack.map((tech, index) => (
