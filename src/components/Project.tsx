@@ -30,7 +30,7 @@ const Project = () => {
                 <h2 className="text-2xl font-bold mt-8 tracking-[0.5px]">
                   {data.name}
                 </h2>
-                <p className="text-base text-wrap prose font-light text-gray-700 line-clamp-2 mt-4">
+                <p className="text-base text-wrap prose font-light text-gray-700 line-clamp-2 mt-4 flex-grow">
                   {data.desc}
                 </p>
                 <Link href="" className="">
