@@ -7,6 +7,12 @@
   --font-sans: var(--font-giest-sans);
 }
 
+body {
+  scroll-behaviour: auto;
+  overflow-x: hidden;
+  overflow-y: scroll;
+}
+
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
@@ -128,5 +134,8 @@
 @layer utilities {
   .flex-between {
     @apply flex justify-between items-center;
+  }
+  .flex-center {
+    @apply flex justify-center items-center;
   }
 }

@@ -8,9 +8,11 @@ import { HoverCard, HoverCardTrigger, HoverCardContent } from "./ui/hover-card";
 const Navbar = () => {
   return (
     <header className="py-4">
-      <nav className="max-w-[586px] border mx-auto bg-black/85 flex justify-between items-center py-2 px-4 rounded-full">
+      <nav className="max-w-[586px] mx-auto bg-black/85 flex justify-between items-center py-2 px-4 rounded-full border outline-none shadow-md fixed left-0 right-0 ">
         <div>
-          <img src="img/brandLogo.png" alt="Brand Logo" />
+          <Link href="/">
+            <img src="img/brandLogo.png" alt="Brand Logo" />
+          </Link>
         </div>
 
         <div className="">
@@ -36,13 +38,19 @@ const Navbar = () => {
         <div className="flex-between gap-2">
           <HoverCard>
             <HoverCardTrigger>
-              <FiGithub className="size-6 text-white hover:text-white/90" />
+              <Link
+                target="_blank"
+                rel="noreferrer"
+                href="https://github.com/SteeveSticks"
+              >
+                <FiGithub className="size-6 text-white hover:text-white/90 cursor-pointer" />
+              </Link>
             </HoverCardTrigger>
             <HoverCardContent>GitHub</HoverCardContent>
           </HoverCard>
           <HoverCard>
             <HoverCardTrigger>
-              <IoDocumentTextOutline className="size-6 text-white hover:text-white/90" />
+              <IoDocumentTextOutline className="size-6 text-white hover:text-white/90 cursor-pointer" />
             </HoverCardTrigger>
             <HoverCardContent>Resume</HoverCardContent>
           </HoverCard>
