@@ -34,7 +34,7 @@ const Project = () => {
                   {data.desc}
                 </p>
                 <Link href="" className="">
-                  <Button className="!cursor-pointer mt-4 !bg-gray-300 hover:!bg-gray-300/80">
+                  <Button className="!cursor-pointer mt-4 !bg-gray-200 hover:!bg-gray-200/80">
                     View Project <ArrowRightIcon />
                   </Button>
                 </Link>
