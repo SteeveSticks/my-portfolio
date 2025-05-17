@@ -3,7 +3,6 @@ import React from "react";
 import { Button } from "./ui/button";
 import { Dot } from "lucide-react";
 import StackLoop from "./StackLoop";
-import Link from "next/link";
 
 const Hero = () => {
   return (
