@@ -57,7 +57,7 @@ const Navbar = () => {
 
           <div className="border-l">
             <Button className="ml-2">
-              <Link href="/contact">Contact</Link>
+              <a href="/contact">Contact</a>
             </Button>
           </div>
         </div>
