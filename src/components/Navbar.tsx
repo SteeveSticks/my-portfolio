@@ -8,7 +8,7 @@ import { HoverCard, HoverCardTrigger, HoverCardContent } from "./ui/hover-card";
 const Navbar = () => {
   return (
     <header className="py-4">
-      <nav className="max-w-[586px] mx-auto bg-black/85 flex justify-between items-center py-2 px-4 rounded-full border outline-none shadow-md fixed left-0 right-0 ">
+      <nav className="max-w-[586px] mx-auto bg-black/85 flex flex-wrap justify-between items-center py-2 px-4 rounded-full border outline-none shadow-md fixed left-0 right-0 ">
         <div>
           <Link href="/">
             <img src="/img/brandLogo.png" alt="Brand Logo" />
@@ -16,7 +16,7 @@ const Navbar = () => {
         </div>
 
         <div className="">
-          <ul className="flex-between">
+          <ul className="flex-between flex-wrap">
             <li>
               <Button variant="link">
                 <a href="#">Home</a>
@@ -35,7 +35,7 @@ const Navbar = () => {
           </ul>
         </div>
 
-        <div className="flex-between gap-2">
+        <div className="flex-between gap-2 flex-wrap">
           <HoverCard>
             <HoverCardTrigger>
               <Link
@@ -52,6 +52,7 @@ const Navbar = () => {
             <HoverCardTrigger>
               <IoDocumentTextOutline className="size-6 text-white hover:text-white/90 cursor-pointer" />
             </HoverCardTrigger>
+            <ul className="flex-between flex-wrap"></ul>
             <HoverCardContent>Resume</HoverCardContent>
           </HoverCard>
 

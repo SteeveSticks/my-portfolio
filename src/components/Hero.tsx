@@ -19,18 +19,19 @@ const Hero = () => {
         </div>
 
         <div className="">
-          <h1 className="font-bold leading-14 text-[56px] mt-6">
+          <h1 className="font-bold md:leading-14 leading-13 md:text-[56px] text-[40px] mt-6">
             Hi, I&apos;m Adebanjo Stephen.
             <br /> Software Engineer
           </h1>
-          <h3 className="text-gray-600 mt-4">
+          <h3 className="text-gray-600 mt-4 flex-wrap">
             Relentless self-taught developer, passionate about crafting Next.js
             solutions,
-            <br /> and driven to grow in tech.
+            <br />
+            and driven to grow in tech.
           </h3>
         </div>
 
-        <div className="flex items-center justify-center mt-6 gap-2">
+        <div className="flex items-center justify-center mt-6 gap-2 flex-wrap">
           <Button className="!bg-black/90 text-white !cursor-pointer !py-4 !px-6 hover:!bg-black/82">
             <a href="#contact">Hire Me!</a>
           </Button>
