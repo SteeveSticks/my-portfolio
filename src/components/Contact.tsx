@@ -29,7 +29,7 @@ const Contact = () => {
   }
 
   return (
-    <div id="contact" className="px-14 mt-30">
+    <div id="contact" className="px-4 sm:px-8 md:px-14 mt-30">
       <div className="grid text-wrap">
         <h1 className="text-black font-bold text-3xl">Get in touch</h1>
 
@@ -44,14 +44,14 @@ const Contact = () => {
       <div className="py-2">
         <div className="mt-8">
           <form onSubmit={handleSubmit} className="">
-            <div className="flex items-center justify-center gap-8 ">
+            <div className="flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-8">
               <input
                 type="text"
                 id="name"
                 placeholder="Full Name"
                 value={form.name}
                 onChange={(e) => setForm({ ...form, name: e.target.value })}
-                className="border py-4 px-6 rounded-xl bg-[#F2F2F2] focus:outline-black"
+                className="w-full sm:w-auto border py-4 px-6 rounded-xl bg-[#F2F2F2] focus:outline-black"
                 required
               />
               <input
@@ -60,7 +60,7 @@ const Contact = () => {
                 placeholder="Email Address"
                 value={form.email}
                 onChange={(e) => setForm({ ...form, email: e.target.value })}
-                className="border py-4 px-8 rounded-xl bg-[#F2F2F2] focus:outline-black"
+                className="w-full sm:w-auto border py-4 px-8 rounded-xl bg-[#F2F2F2] focus:outline-black"
                 required
               />
             </div>
