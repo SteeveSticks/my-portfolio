@@ -19,17 +19,17 @@ const Navbar = () => {
           <ul className="flex-between">
             <li>
               <Button variant="link">
-                <Link href="/">Home</Link>
+                <a href="#">Home</a>
               </Button>
             </li>
             <li>
               <Button variant="link">
-                <Link href="/projects">Projects</Link>
+                <a href="#projects">Projects</a>
               </Button>
             </li>
             <li>
               <Button variant="link">
-                <Link href="/experience">Experience</Link>
+                <Link href="#experience">Experience</Link>
               </Button>
             </li>
           </ul>
@@ -57,7 +57,7 @@ const Navbar = () => {
 
           <div className="border-l">
             <Button className="ml-2">
-              <a href="/contact">Contact</a>
+              <a href="#contact">Contact</a>
             </Button>
           </div>
         </div>

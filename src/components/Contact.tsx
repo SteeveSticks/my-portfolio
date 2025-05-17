@@ -29,7 +29,7 @@ const Contact = () => {
   }
 
   return (
-    <div className="px-14 mt-30">
+    <div id="contact" className="px-14 mt-30">
       <div className="grid text-wrap">
         <h1 className="text-black font-bold text-3xl">Get in touch</h1>
 

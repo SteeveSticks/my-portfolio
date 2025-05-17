@@ -10,7 +10,7 @@ import { motion } from "framer-motion";
 
 const Project = () => {
   return (
-    <div>
+    <div id="projects">
       <div className="mt-10 py-2 grid font-bold text-3xl">
         <div className="text-center">
           <h1>Shipped Projects (Last 8 Months)</h1>
