@@ -16,7 +16,7 @@ const Project = () => {
           <h1>Shipped Projects (Last 8 Months)</h1>
         </div>
 
-        <div className="mt-10 grid grid-cols-2 gap-8 px-6">
+        <div className="mt-10 grid grid-cols-1 sm:grid-cols-2 gap-8 px-4 sm:px-6 md:px-8">
           {projects.map((data, index) => (
             <div key={index} className="border rounded-2xl">
               <div className="p-5">
