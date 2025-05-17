@@ -1,16 +1,16 @@
 "use client";
 
 import React, { useState } from "react";
+import { Button } from "./ui/button";
+import { toast } from "sonner";
 
 const Contact = () => {
   const [form, setForm] = useState({ name: "", email: "", message: "" });
   const [loading, setLoading] = useState(false);
-  const [status, setStatus] = useState("");
 
   async function handleSubmit(e: React.FormEvent) {
     e.preventDefault();
     setLoading(true);
-    setStatus("");
 
     const res = await fetch("/api/send", {
       method: "POST",
@@ -21,16 +21,16 @@ const Contact = () => {
     setLoading(false);
 
     if (res.ok) {
-      setStatus("Message sent!");
+      toast.success("Message sent!");
       setForm({ name: "", email: "", message: "" });
     } else {
-      setStatus("Something went wrong. Please try again.");
+      toast.error("Something went wrong. Please try again.");
     }
   }
 
   return (
     <div className="px-14 mt-30">
-      <div className="border grid text-wrap">
+      <div className="grid text-wrap">
         <h1 className="text-black font-bold text-3xl">Get in touch</h1>
 
         <p className="prose mt-2 text-gray-600">
@@ -41,39 +41,51 @@ const Contact = () => {
         </p>
       </div>
 
-      <div className="grid">
-        <form
-          onSubmit={handleSubmit}
-          className="border bg-gray-100 mt-20 py-20"
-        >
-          <input
-            type="text"
-            placeholder="Your Name"
-            value={form.name}
-            onChange={(e) => setForm({ ...form, name: e.target.value })}
-            required
-          />
-          <input
-            type="email"
-            placeholder="Your Email"
-            value={form.email}
-            onChange={(e) => setForm({ ...form, email: e.target.value })}
-            required
-          />
-          <textarea
-            placeholder="Your message"
-            value={form.message}
-            onChange={(e) => setForm({ ...form, message: e.target.value })}
-          ></textarea>
+      <div className="py-2">
+        <div className="mt-8">
+          <form onSubmit={handleSubmit} className="">
+            <div className="flex items-center justify-center gap-8 ">
+              <input
+                type="text"
+                id="name"
+                placeholder="Full Name"
+                value={form.name}
+                onChange={(e) => setForm({ ...form, name: e.target.value })}
+                className="border py-4 px-6 rounded-xl bg-[#F2F2F2] focus:outline-black"
+                required
+              />
+              <input
+                type="email"
+                id="email"
+                placeholder="Email Address"
+                value={form.email}
+                onChange={(e) => setForm({ ...form, email: e.target.value })}
+                className="border py-4 px-8 rounded-xl bg-[#F2F2F2] focus:outline-black"
+                required
+              />
+            </div>
 
-          <div className="mt-4">
-            <button type="submit" disabled={loading}>
-              {loading ? "Sending.." : "Send Message"}
-            </button>
-          </div>
+            <div className="mt-2">
+              <textarea
+                placeholder="Hi, Stephen are you up for this role:"
+                id="message"
+                value={form.message}
+                onChange={(e) => setForm({ ...form, message: e.target.value })}
+                className="inline-flex w-full resize-none h-40 px-4 py-3 bg-[#F2F2F2] rounded-xl focus:outline-black mt-2 border"
+              ></textarea>
+            </div>
 
-          {status && <p>{status}</p>}
-        </form>
+            <div className="mt-4">
+              <Button
+                className="border text-center py-6 inline-flex w-full cursor-pointer bg-black/90 text-white text-base hover:!bg-black/80"
+                type="submit"
+                disabled={loading}
+              >
+                {loading ? "Sending.." : "Send Message"}
+              </Button>
+            </div>
+          </form>
+        </div>
       </div>
     </div>
   );

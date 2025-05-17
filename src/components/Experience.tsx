@@ -39,6 +39,8 @@ const Experience = () => {
           </span>
         </div>
       </div>
+
+      <hr className="mt-20" />
     </div>
   );
 };
