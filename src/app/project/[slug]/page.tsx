@@ -21,18 +21,20 @@ const ProjectPage = async ({ params }: { params: { slug: string } }) => {
   if (!project) return notFound();
 
   return (
-    <div className="py-3 px-10">
-      <div className="min-h-screen mt-30 text-wrap">
-        <div className="">
-          <h2 className="font-semibold text-[45px]">{project.name}</h2>
-          <p className="flex-grow text-gray-600 text-[19px] mt-0">
+    <div className="py-3 px-4 sm:px-6 md:px-10">
+      <div className="mt-30 text-wrap">
+        <div>
+          <h2 className="font-semibold text-[32px] sm:text-[38px] md:text-[45px]">
+            {project.name}
+          </h2>
+          <p className="flex-grow text-gray-600 text-[16px] sm:text-[18px] md:text-[19px] mt-0">
             {project.show}
           </p>
         </div>
 
-        <div className="mt-8 rounded-xl border p-8 bg-[#FAFAFA]">
-          <span className="font-bold text-[18px]">
-            Description{" "}
+        <div className="mt-8 rounded-xl border p-4 sm:p-6 md:p-8 bg-[#FAFAFA]">
+          <span className="font-bold text-[16px] sm:text-[17px] md:text-[18px]">
+            Description
             <Button className="bg-[#EEF4FF] text-[#3B82F6] ml-2">
               <FaExclamation />
               {project?.work}
@@ -45,7 +47,9 @@ const ProjectPage = async ({ params }: { params: { slug: string } }) => {
           <hr className="mt-8 mb-8" />
 
           <div>
-            <span className="font-bold text-[18px]">Technologies</span>
+            <span className="font-bold text-[16px] sm:text-[17px] md:text-[18px]">
+              Technologies
+            </span>
             <ul className="flex flex-wrap gap-2 mt-3">
               {project.lang.map((tech) => (
                 <li key={tech}>
@@ -78,7 +82,7 @@ const ProjectPage = async ({ params }: { params: { slug: string } }) => {
             alt={project.name}
             width={900}
             height={900}
-            className="rounded-sm"
+            className="rounded-sm w-full h-auto"
           />
         </div>
       </div>
