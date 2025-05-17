@@ -7,7 +7,7 @@ import { motion } from "framer-motion";
 
 const About = () => {
   return (
-    <div className="py-30 mt-10">
+    <div className="py-28 mt-10 px-4 sm:px-6 lg:px-4">
       <div className="max-w-2xl grid items-center justify-start text-wrap mx-auto prose">
         <div className="">
           <div className="font-bold text-3xl text-black/90">About</div>
@@ -52,20 +52,20 @@ const About = () => {
         </div>
       </div>
 
-      <div className="flex-center mt-6">
+      <div className="flex justify-center mt-6 px-4">
         <motion.div
           whileHover={{ scale: 1.05 }}
           transition={{ duration: 0.2 }}
-          className="py-2 px-3 bg-white shadow-sm rounded-sm"
+          className="py-2 px-3 bg-white shadow-sm rounded-sm w-fit"
         >
           <Image
             src="/img/profile-pic.jpg"
             width={200}
             height={200}
             alt="profile image"
-            className="rounded-sm bg-white w-50"
+            className="rounded-sm bg-white w-full max-w-[200px]"
           />
-          <span className="text-sm ml-16 relative top-1 text-gray-800">
+          <span className="text-sm block text-center mt-1 text-gray-800">
             @midecode
           </span>
         </motion.div>
