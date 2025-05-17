@@ -7,7 +7,7 @@ import StackLoop from "./StackLoop";
 const Hero = () => {
   return (
     <div>
-      <section className="grid justify-center  items-center text-center py-24 mt-6">
+      <section className="grid justify-center items-center text-center py-24 mt-6">
         <div className="inline-flex items-center justify-center">
           <Image
             src="/img/profile-image.jpg"

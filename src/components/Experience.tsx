@@ -4,7 +4,7 @@ import { Star } from "lucide-react";
 
 const Experience = () => {
   return (
-    <div id="experience" className="px-20">
+    <div id="experience" className="px-4 sm:px-6 lg:px-20">
       <hr className="mt-40 px-10" />
 
       <div className="mt-18 p-6">
