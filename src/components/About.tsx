@@ -55,6 +55,7 @@ const About = () => {
       <div className="flex justify-center mt-6 px-4">
         <motion.div
           whileHover={{ scale: 1.05 }}
+          whileTap={{ scale: 0.9 }}
           transition={{ duration: 0.2 }}
           className="py-2 px-3 bg-white shadow-sm rounded-sm w-fit"
         >
