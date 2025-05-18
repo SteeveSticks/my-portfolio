@@ -37,7 +37,13 @@ const Project = () => {
                   {data.desc}
                 </p>
                 <Link href={`/project/${data.slug}`} className="">
-                  <motion.div whileTap={{ scale: 0.9 }} whileHover={{ x: 5 }}>
+                  <motion.div
+                    whileTap={{ scale: 0.9 }}
+                    whileHover={{ x: 5 }}
+                    transition={{
+                      duration: 0.25,
+                    }}
+                  >
                     <Button className="!cursor-pointer mt-4 !bg-gray-200 hover:!bg-gray-200/80 space-x-3 transition-colors">
                       View Project <ArrowRightIcon />
                     </Button>
