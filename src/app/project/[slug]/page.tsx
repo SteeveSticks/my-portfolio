@@ -14,7 +14,11 @@ export async function generateStaticParams() {
   }));
 }
 
-const ProjectPage = async ({ params }: { params: { slug: string } }) => {
+const ProjectPage = async ({
+  params,
+}: {
+  params: Promise<{ slug: string }>;
+}) => {
   const { slug } = await params;
   const project = projects.find((p) => p.slug === slug);
 
