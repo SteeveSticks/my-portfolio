@@ -11,9 +11,9 @@ import { motion } from "framer-motion";
 const Project = () => {
   return (
     <div id="projects">
-      <div className="mt-10 py-2 grid font-bold text-3xl">
-        <div className="text-center">
-          <h1>Shipped Projects (Last 8 Months)</h1>
+      <div className="mt-10 py-2 px-1 grid font-bold md:text-3xl text-3xl">
+        <div className="text-center prose">
+          <h1 className="text-[35px]">Shipped Projects (Last 8 Months).</h1>
         </div>
 
         <div className="mt-10 grid grid-cols-1 sm:grid-cols-2 gap-8 px-4 sm:px-6 md:px-8">
@@ -37,7 +37,7 @@ const Project = () => {
                   {data.desc}
                 </p>
                 <Link href={`/project/${data.slug}`} className="">
-                  <motion.div whileHover={{ x: 5 }}>
+                  <motion.div whileTap={{ scale: 0.9 }} whileHover={{ x: 5 }}>
                     <Button className="!cursor-pointer mt-4 !bg-gray-200 hover:!bg-gray-200/80 space-x-3 transition-colors">
                       View Project <ArrowRightIcon />
                     </Button>
