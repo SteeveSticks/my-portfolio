@@ -4,15 +4,17 @@ import { Star } from "lucide-react";
 
 const Experience = () => {
   return (
-    <div id="experience" className="px-4 sm:px-6 lg:px-20">
+    <div id="experience" className="px-2 sm:px-20 lg:px-20">
       <hr className="mt-30 px-10" />
 
       <div className="mt-18 p-6">
         <div>
           <h2 className="font-bold text-2xl text-black">Work Experience</h2>
 
-          <div className="flex-between mt-8">
-            <span className="text-sm text-gray-500">2024-Present</span>
+          <div className="md:flex md:items-center md:justify-between grid mt-8">
+            <span className="md:text-sm text-[13px] text-gray-500 px-2 mb-2">
+              2024-Present
+            </span>
 
             <div className="flex-center">
               <h1 className="text-gray-500">Founder and Developer </h1>
