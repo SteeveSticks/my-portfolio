@@ -16,18 +16,18 @@ const Navbar = () => {
         </div>
 
         <div className="">
-          <ul className="flex-between flex-wrap">
-            <li>
+          <ul className="flex-center flex-wrap">
+            <li className="">
               <Button variant="link">
                 <a href="#">Home</a>
               </Button>
             </li>
-            <li>
+            <li className="sm:block hidden">
               <Button variant="link">
                 <a href="#projects">Projects</a>
               </Button>
             </li>
-            <li>
+            <li className="sm:block hidden">
               <Button variant="link">
                 <Link href="#experience">Experience</Link>
               </Button>

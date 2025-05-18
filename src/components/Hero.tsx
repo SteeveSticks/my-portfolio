@@ -19,11 +19,11 @@ const Hero = () => {
         </div>
 
         <div className="">
-          <h1 className="font-bold md:leading-14 leading-13 md:text-[56px] text-[40px] mt-6">
+          <h1 className="font-bold md:leading-14 leading-8 md:text-[56px] text-[28px] mt-6">
             Hi, I&apos;m Adebanjo Stephen.
             <br /> Software Engineer
           </h1>
-          <h3 className="text-gray-600 mt-4 flex-wrap">
+          <h3 className="text-gray-600 mt-4 flex-wrap md:px-0 px-4">
             Relentless self-taught developer, passionate about crafting Next.js
             solutions,
             <br />
