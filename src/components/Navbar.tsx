@@ -50,7 +50,14 @@ const Navbar = () => {
           </HoverCard>
           <HoverCard>
             <HoverCardTrigger>
-              <IoDocumentTextOutline className="size-6 text-white hover:text-white/90 cursor-pointer" />
+              <a
+                download
+                target="_blank"
+                rel="noopener noreferrer"
+                href="/Resume (7).pdf"
+              >
+                <IoDocumentTextOutline className="size-6 text-white hover:text-white/90 cursor-pointer" />
+              </a>
             </HoverCardTrigger>
             <ul className="flex-between flex-wrap"></ul>
             <HoverCardContent>Resume</HoverCardContent>
