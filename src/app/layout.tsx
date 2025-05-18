@@ -42,7 +42,7 @@ export const metadata: Metadata = {
   openGraph: {
     type: "website",
     locale: "en_US",
-    url: "",
+    url: "https://myportfoliome.vercel.app/",
     siteName: "Adebanjo Stephen Portfolio",
     title: "Adebanjo Stephen | Software Engineer",
     description:
