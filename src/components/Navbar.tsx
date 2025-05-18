@@ -43,7 +43,7 @@ const Navbar = () => {
                 rel="noreferrer"
                 href="https://github.com/SteeveSticks"
               >
-                <FiGithub className="size-6 text-white hover:text-white/90 cursor-pointer" />
+                <FiGithub className="size-6 text-white hover:text-white/90 cursor-pointer mr-2" />
               </Link>
             </HoverCardTrigger>
             <HoverCardContent>GitHub</HoverCardContent>
