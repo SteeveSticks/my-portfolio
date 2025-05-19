@@ -2,7 +2,7 @@ import React from "react";
 import { projects } from "../../../../_data/data";
 import { notFound } from "next/navigation";
 import { Button } from "@/components/ui/button";
-import { ExternalLink } from "lucide-react";
+import { Check, ExternalLink } from "lucide-react";
 import Link from "next/link";
 import { FiGithub } from "react-icons/fi";
 import Image from "next/image";
@@ -48,6 +48,17 @@ const ProjectPage = async ({
             {project.desc}
           </p>
 
+          <h3 className="mt-3 text-red-400 text-base text-wrap prose font-light flex-grow">
+            Problem i noticed: {project.problem}
+          </h3>
+
+          <h2 className="mt-3 text-base text-wrap prose font-light flex-grow">
+            <span className="text-[#178D00] text-[16px]">
+              Solution I rendered ✅:
+            </span>{" "}
+            <span className="text-gray-700 ">{project.solution}</span>
+          </h2>
+
           <hr className="mt-8 mb-8" />
 
           <div>
@@ -66,7 +77,7 @@ const ProjectPage = async ({
           </div>
         </div>
 
-        <div className="py-2 flex gap-2 mt-8">
+        <div className="py-2 flex gap-3 mt-8">
           <Link target="_blank" href={project.link}>
             <Button className="!py-6  mt-3 !bg-black/90 text-white !cursor-pointer">
               View Project <ExternalLink />

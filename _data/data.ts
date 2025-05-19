@@ -15,6 +15,10 @@ export const projects = [
     img: "job-portalimg.png",
     link: "https://job-portal-frontend-three-orcin.vercel.app/",
     git: "https://github.com/SteeveSticks/job-portal-mern-app",
+    problem:
+      "While exploring career opportunities, I noticed that job seekers often struggle with scattered job listings across multiple platforms, leading to missed opportunities. Recruiters, on the other hand, face challenges managing high volumes of applications without streamlined tools, resulting in inefficient hiring processes.",
+    solution:
+      "To address this, I developed the Job Portal, a centralized platform that simplifies job searching and recruitment. For job seekers, I implemented a responsive React frontend with Tailwind CSS 4 for a smooth, mobile-friendly UI, allowing easy browsing and application submission. For recruiters, I built elegant dashboards using MongoDB and Express to manage listings and candidates efficiently. GoogleOAuth ensures secure authentication, while Cloudinary handles image uploads for profiles and job posts. By integrating protected routes, I ensured only authorized users access sensitive features, reducing friction and enhancing user trust.",
   },
   {
     name: "StartupFounder",
@@ -33,6 +37,10 @@ export const projects = [
     img: "startupFounderimg.png",
     link: "https://startup-founders-app.vercel.app/",
     git: "https://github.com/SteeveSticks/STARTUP-FULLSTACK-APP",
+    problem:
+      "Through conversations with developers and my own experience, I identified a gap in the tech ecosystem: many developers lack a dedicated platform to showcase their startups, making it hard to attract collaborators or investors. This limits innovation and networking, especially in vibrant tech hubs like London, where I aim to contribute.",
+    solution:
+      "I created StartupFounder to empower developers by providing a scalable platform to present their projects. Using Next.js and TypeScript, I built a performant, type-safe application, with Tailwind CSS 4 for a visually appealing UI. Sanity CMS enables dynamic content management, allowing developers to update startup profiles easily. Framer Motion adds engaging animations to enhance user experience, while NextAuth secures user logins. Sentry monitors errors to ensure reliability, and Zod validates data inputs for robustness. The platform’s launch attracted 10+ users in two months, proving its value in fostering tech collaboration.",
   },
   {
     name: "Bookstore App",
@@ -51,6 +59,10 @@ export const projects = [
     img: "bookstoreimg.png",
     link: "https://stephen-book-app.vercel.app/",
     git: "https://github.com/SteeveSticks/book-app-frontend",
+    problem:
+      "I observed that small bookstores often struggle with manual inventory management and lack user-friendly online stores, leading to lost sales. Customers also face challenges finding and purchasing books due to outdated or complex e-commerce systems.",
+    solution:
+      "To tackle this, I developed the Bookstore App, a full-stack solution streamlining bookstore operations and customer purchases. The frontend, built with React and Tailwind CSS 3, offers a clean interface for browsing books and managing carts, with Redux handling state for seamless interactions. On the backend, Node.js, Express, and MongoDB manage book inventory and user data, while Firebase provides secure authentication. I optimized the deployment flow with Vercel, ensuring fast access. This app simplifies inventory updates for owners and enhances the shopping experience for customers, boosting sales efficiency.",
   },
   {
     name: "Pentagon Tokens",
@@ -69,6 +81,10 @@ export const projects = [
     img: "pentagonsTokenimg.png",
     link: "https://crypto-website-frontend-one.vercel.app/",
     git: "https://github.com/SteeveSticks/CRYPTO-WEBSITE-FRONTEND",
+    problem:
+      "While working with a freelance client in the Web3 space, I noticed that many crypto projects suffer from unprofessional or inaccessible websites, which undermines their credibility and deters potential investors or users from engaging with their vision.",
+    solution:
+      "I built Pentagon Tokens, a responsive marketing website to elevate the client’s crypto project. Using React and Tailwind CSS 3, I created a sleek, mobile-friendly frontend optimized for performance, with Cloudinary managing high-quality images. The backend, powered by Node.js, Express, and MongoDB, handles data efficiently. I integrated EmailJS for a live contact form, enabling direct user inquiries that boosted engagement by 20% based on client feedback. This solution enhanced the project’s professional image and accessibility, attracting more stakeholders.",
   },
   {
     name: "TODO App",
@@ -79,6 +95,10 @@ export const projects = [
     img: "todoappimgae.png",
     link: "https://todoapp-six-tau-67.vercel.app/",
     git: "https://github.com/SteeveSticks/TODO-LIST-",
+    problem:
+      "During my daily routine, I found that existing task management apps were often bloated with features, causing distractions and slowing down productivity. Users needed a simple tool to organize tasks without unnecessary complexity.",
+    solution:
+      "I developed the TODO App to provide a distraction-free task management experience. Built with React and JavaScript, the app features a clean, intuitive interface for adding, editing, and completing tasks. Redux manages state to ensure fast updates, while CSS styles keep the design minimal yet functional. I focused on usability by streamlining interactions, such as single-click task completion, resulting in a lightweight app that loads in under 1 second. This solution helps users stay organized and productive with minimal effort.",
   },
   {
     name: "Silent Alarm App",
@@ -96,6 +116,10 @@ export const projects = [
     img: "silentalarmimage.png",
     link: "https://github.com/SteeveSticks/SILENT-ALARM-APP",
     git: "https://github.com/SteeveSticks/SILENT-ALARM-APP",
+    problem:
+      "I recognized a critical safety issue: in emergencies, especially in high-risk environments, individuals need a way to alert trusted contacts discreetly without escalating danger. Traditional alarms or phone calls are often too conspicuous or slow, putting users at risk.",
+    solution:
+      "I’m building the Silent Alarm App to address this gap, using React Native and Expo for a cross-platform mobile app with a clean UI styled by Tailwind CSS 3. The app features a silent panic button that sends GPS-tracked alerts to trusted contacts via Firebase Firestore, ensuring real-time communication. Firebase Auth secures user accounts, while Stripe integrates monetization for premium features like multiple contacts. I optimized for fast response times (under 2 seconds for alerts) by leveraging Firebase’s real-time database, enhancing safety for users in vulnerable situations.",
   },
   {
     name: "HydraMind (Hackathon Project)",
@@ -115,5 +139,9 @@ export const projects = [
     img: "hydramindappimage.png",
     link: "https://github.com/codewithkin/hydramind",
     git: "https://github.com/codewithkin/hydramind",
+    problem:
+      "During a hackathon, my team and I noticed that many people neglect hydration due to busy schedules and lack of tailored guidance, leading to health issues like fatigue. Existing apps often provide generic reminders, failing to account for individual needs or lifestyles.",
+    solution:
+      "We developed HydraMind, an AI-powered hydration assistant, with me leading the frontend and authentication. Using React with TypeScript and Vite, I built a fast, type-safe UI, styled for clarity. TanStack Router and Query optimized navigation and data fetching, while BetterAuth secured user logins. The backend, powered by Node.js, Express, and MongoDB, supports an AI model that analyzes user data (e.g., weight, activity level) to deliver personalized intake recommendations and smart reminders. Built under tight deadlines, HydraMind adapts to user habits, improving health outcomes with minimal effort.",
   },
 ];
