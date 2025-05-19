@@ -43,14 +43,14 @@ export const metadata: Metadata = {
   openGraph: {
     type: "website",
     locale: "en_US",
-    url: "https://myportfoliome.vercel.app/",
+    url: "https://myportfoliome.vercel.app",
     siteName: "Adebanjo Stephen Portfolio",
     title: "Adebanjo Stephen | Software Engineer",
     description:
       "Self-taught software engineer and entrepreneur, specializing in Frontend, Backend, Full-stack development with Next.js, JavaScript, and TypeScript. As the founder of StartupFounder, a platform connecting developers and showcasing startups, I'm is dedicated to fostering innovation and community within the tech industry.",
     images: [
       {
-        url: "/profile-pic.jpg",
+        url: "https://myportfoliome.vercel.app/img/profile-pic.jpg",
         width: 1200,
         height: 630,
         alt: "Adebanjo Stephen | Software Engineer",
@@ -63,7 +63,7 @@ export const metadata: Metadata = {
     description:
       "Self-taught software engineer and entrepreneur, specializing in Frontend, Backend, Full-stack development with Next.js, JavaScript, and TypeScript.",
     creator: "@AdebanjoSt63916",
-    images: ["/profile-pic.jpg"],
+    images: ["https://myportfoliome.vercel.app/img/profile-pic.jpg"],
   },
   robots: {
     index: true,
@@ -86,6 +86,28 @@ export const metadata: Metadata = {
     title: "Adebanjo Stephen Olumide",
   },
 };
+
+<script
+  type="application/ld+json"
+  dangerouslySetInnerHTML={{
+    __html: JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "Person",
+      name: "Adebanjo Stephen",
+      url: "https://myportfoliome.vercel.app",
+      image: "https://myportfoliome.vercel.app/img/profile-pic.jpg",
+      sameAs: [
+        "https://github.com/SteeveSticks",
+        "https://x.com/AdebanjoSt63916",
+      ],
+      jobTitle: "Software Engineer",
+      worksFor: {
+        "@type": "Organization",
+        name: "StartupFounder",
+      },
+    }),
+  }}
+/>;
 
 export default function RootLayout({
   children,
