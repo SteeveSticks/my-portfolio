@@ -29,8 +29,9 @@ const Experience = () => {
         <div className="text-wrap prose border p-2 mt-8 rounded-sm shadow-sm">
           <Star className="text-[#3B82F6] mb-2" />
           <span className="bg-[#EEF4FF] text-[#3B82F6]">
-            While I may not have formal work experience yet, I&apos;ve been
-            consistently building real-world projects that solve real problems.
+            As a self-taught dev, I’ve built impactful projects like
+            StartupFounder and a panic alarm app, solving real problems with
+            Next.js and TypeScript.
             <br />
             I&apos;m actively seeking opportunities to gain hands-on experience,
             contribute to meaningful products, and grow professionally.{" "}
