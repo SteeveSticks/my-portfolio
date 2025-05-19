@@ -2,7 +2,7 @@ import React from "react";
 import { projects } from "../../../../_data/data";
 import { notFound } from "next/navigation";
 import { Button } from "@/components/ui/button";
-import { Check, ExternalLink } from "lucide-react";
+import { ExternalLink } from "lucide-react";
 import Link from "next/link";
 import { FiGithub } from "react-icons/fi";
 import Image from "next/image";
