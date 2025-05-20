@@ -8,7 +8,7 @@ import { HoverCard, HoverCardTrigger, HoverCardContent } from "./ui/hover-card";
 const Navbar = () => {
   return (
     <header className="py-4">
-      <nav className="max-w-[586px] mx-auto bg-black/85 flex flex-wrap justify-between items-center py-2 px-4 rounded-full border outline-none shadow-md fixed left-0 right-0 ">
+      <nav className="max-w-[586px] mx-auto bg-black/85 flex flex-wrap justify-between items-center py-2 px-4 rounded-full border outline-none shadow-md fixed left-0 right-0 z-50">
         <div>
           <Link href="/">
             <img src="/img/brandLogo.png" alt="Brand Logo" />
