@@ -19,17 +19,17 @@ const Navbar = () => {
           <ul className="flex-center flex-wrap">
             <li className="">
               <Button variant="link">
-                <a href="#">Home</a>
+                <Link href="/#">Home</Link>
               </Button>
             </li>
             <li className="sm:block hidden">
               <Button variant="link">
-                <a href="#projects">Projects</a>
+                <Link href="/#projects">Projects</Link>
               </Button>
             </li>
             <li className="sm:block hidden">
               <Button variant="link">
-                <Link href="#experience">Experience</Link>
+                <Link href="/#experience">Experience</Link>
               </Button>
             </li>
           </ul>
@@ -65,7 +65,7 @@ const Navbar = () => {
 
           <div className="border-l">
             <Button className="ml-2">
-              <a href="#contact">Contact</a>
+              <Link href="/#contact">Contact</Link>
             </Button>
           </div>
         </div>
