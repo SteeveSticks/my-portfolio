@@ -1,24 +1,28 @@
 export const projects = [
   {
-    name: "Job Portal",
-    slug: "job-portal",
-    show: " Real-world use case, responsive UI, auth + protected routes, elegant dashboard",
-    desc: "A fully responsive job platform with authentication, dashboards for job seekers and recruiters, and smooth UI/UX built with modern best practices.",
+    name: "Notion Clone",
+    slug: "Notion",
+    show: "Implemented real-time collaboration, user typing indicators, OpenAI-like cloudflare language, and OpenAI chat integration, worked with Liveblocks and Firebase",
+    desc: "A collaborative document editing app similar to Notion, featuring real-time user presence, typing indicators, and AI-powered chat functionality using cloudflare language and OpenAI integration.",
     lang: [
-      "React",
-      "Tailwind CSS 4",
-      "MongoDB",
-      "Express",
-      "Cloudinary",
-      "GoogleOAuth",
+      "Next.js",
+      "Clerk",
+      "Tailwind CSS",
+      "Shadcn",
+      "Liveblocks",
+      "Firebase",
+      "Hono",
+      "Cloudflare Workers",
+      "OpenAI API",
+      "Vercel",
     ],
-    img: "job-portalimg.png",
-    link: "https://job-portal-frontend-three-orcin.vercel.app/",
-    git: "https://github.com/SteeveSticks/job-portal-mern-app",
+    img: "notionclone.png",
+    link: "https://notion-clone-psi-gray.vercel.app/",
+    git: "https://github.com/SteeveSticks/NOTION-CLONE",
     problem:
-      "While exploring career opportunities, I noticed that job seekers often struggle with scattered job listings across multiple platforms, leading to missed opportunities. Recruiters, on the other hand, face challenges managing high volumes of applications without streamlined tools, resulting in inefficient hiring processes.",
+      "Many collaborative tools lack seamless real-time interaction and advanced AI assistance, making it hard for teams to work efficiently on documents. Users often face delays in seeing edits or lack smart suggestions, reducing productivity.",
     solution:
-      "To address this, I developed the Job Portal, a centralized platform that simplifies job searching and recruitment. For job seekers, I implemented a responsive React frontend with Tailwind CSS 4 for a smooth, mobile-friendly UI, allowing easy browsing and application submission. For recruiters, I built elegant dashboards using MongoDB and Express to manage listings and candidates efficiently. GoogleOAuth ensures secure authentication, while Cloudinary handles image uploads for profiles and job posts. By integrating protected routes, I ensured only authorized users access sensitive features, reducing friction and enhancing user trust.",
+      "I built a Notion-like clone using React with TypeScript, integrating Liveblocks for real-time collaboration and typing indicators, allowing users to see each other's edits instantly. Clerk handles user authentication and Firebase handles document storage. I added an OpenAI-like chat feature using Cloudflare Workers for language processing, enabling smart document suggestions and conversations. This solution enhances teamwork and productivity, built with a focus on real-time performance and AI-driven assistance.",
   },
   {
     name: "StartupFounder",
@@ -41,6 +45,27 @@ export const projects = [
       "Through conversations with developers and my own experience, I identified a gap in the tech ecosystem: many developers lack a dedicated platform to showcase their startups, making it hard to attract collaborators or investors. This limits innovation and networking, especially in vibrant tech hubs like London, where I aim to contribute.",
     solution:
       "I created StartupFounder to empower developers by providing a scalable platform to present their projects. Using Next.js and TypeScript, I built a performant, type-safe application, with Tailwind CSS 4 for a visually appealing UI. Sanity CMS enables dynamic content management, allowing developers to update startup profiles easily. Framer Motion adds engaging animations to enhance user experience, while NextAuth secures user logins. Sentry monitors errors to ensure reliability, and Zod validates data inputs for robustness. The platform’s launch attracted 10+ users in two months, proving its value in fostering tech collaboration.",
+  },
+  {
+    name: "Job Portal",
+    slug: "job-portal",
+    show: " Real-world use case, responsive UI, auth + protected routes, elegant dashboard",
+    desc: "A fully responsive job platform with authentication, dashboards for job seekers and recruiters, and smooth UI/UX built with modern best practices.",
+    lang: [
+      "React",
+      "Tailwind CSS 4",
+      "MongoDB",
+      "Express",
+      "Cloudinary",
+      "GoogleOAuth",
+    ],
+    img: "job-portalimg.png",
+    link: "https://job-portal-frontend-three-orcin.vercel.app/",
+    git: "https://github.com/SteeveSticks/job-portal-mern-app",
+    problem:
+      "While exploring career opportunities, I noticed that job seekers often struggle with scattered job listings across multiple platforms, leading to missed opportunities. Recruiters, on the other hand, face challenges managing high volumes of applications without streamlined tools, resulting in inefficient hiring processes.",
+    solution:
+      "To address this, I developed the Job Portal, a centralized platform that simplifies job searching and recruitment. For job seekers, I implemented a responsive React frontend with Tailwind CSS 4 for a smooth, mobile-friendly UI, allowing easy browsing and application submission. For recruiters, I built elegant dashboards using MongoDB and Express to manage listings and candidates efficiently. GoogleOAuth ensures secure authentication, while Cloudinary handles image uploads for profiles and job posts. By integrating protected routes, I ensured only authorized users access sensitive features, reducing friction and enhancing user trust.",
   },
   {
     name: "Bookstore App",
