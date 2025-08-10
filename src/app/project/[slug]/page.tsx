@@ -93,7 +93,7 @@ const ProjectPage = async ({
         <div className="mt-18">
           <Image
             src={`/img/${project.img}`}
-            alt={project.name}
+            alt={`Screenshot of ${project.name} project`}
             width={900}
             height={900}
             className="rounded-sm w-full h-auto"

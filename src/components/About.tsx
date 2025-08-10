@@ -77,8 +77,8 @@ const About = () => {
             src="/img/profile-pic.jpg"
             width={200}
             height={200}
-            alt="profile image"
-            className="rounded-sm bg-white w-full max-w-[200px]"
+            alt="Adebanjo Stephen profile picture"
+            className="rounded-sm bg-white w-full max-w-[200px] h-auto"
           />
           <span className="text-sm block text-center mt-1 text-gray-800">
             @midecode

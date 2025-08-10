@@ -11,10 +11,10 @@ const Hero = () => {
         <div className="inline-flex items-center justify-center">
           <Image
             src="/img/profile-image.jpg"
-            className="rounded-full mt-6"
-            alt="profile logo"
-            width={114}
-            height={30}
+            alt="Adebanjo Stephen profile picture"
+            width={120}
+            height={120}
+            className="rounded-full border-2 border-green-600"
           />
         </div>
 
