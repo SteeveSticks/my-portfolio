@@ -17,7 +17,9 @@ const Experience = () => {
             </span>
 
             <div className="flex-center">
-              <h1 className="text-gray-500">Founder and Developer </h1>
+              <h1 className="text-gray-500 max-sm:hidden">
+                Founder and Developer{" "}
+              </h1>
               <Button className="bg-[#EEF4FF] text-[#3B82F6] ml-2">
                 <Star />
                 MideCode
@@ -31,16 +33,36 @@ const Experience = () => {
             </span>
 
             <div className="flex-center">
-              <h1 className="text-gray-500">Internship Frontend Developer</h1>
+              <h1 className="text-gray-500 max-sm:hidden">
+                Internship Frontend Developer
+              </h1>
               <Button className="bg-[#EEF4FF] text-[#3B82F6] ml-2">
                 <Star />
                 Bright Sparks Academy
               </Button>
             </div>
           </div>
+
+          <div className="md:flex md:items-center md:justify-between grid mt-8">
+            <span className="md:text-sm text-[13px] text-gray-500 px-2 mb-2">
+              2025-Present
+            </span>
+
+            <div className="flex-center">
+              <h1 className="text-gray-500 max-sm:hidden">
+                Externship AI & Machine Learning
+              </h1>
+              <Button className="bg-[#EEF4FF] text-[#3B82F6] ml-2">
+                <Star />
+                <span className="text-black">
+                  Ex<span className="text-green-800">tern</span>
+                </span>
+              </Button>
+            </div>
+          </div>
         </div>
 
-        <div className="text-wrap prose border p-2 mt-8 rounded-sm shadow-sm">
+        <div className="text-wrap prose border p-2 mt-14 rounded-sm shadow-sm">
           <Star className="text-[#3B82F6] mb-2" />
           <span className="bg-[#EEF4FF] text-[#3B82F6]">
             As a self-taught dev, I’ve built impactful projects like

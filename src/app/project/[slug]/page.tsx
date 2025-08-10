@@ -41,7 +41,6 @@ const ProjectPage = async ({
             Description
             <Button className="bg-[#EEF4FF] text-[#3B82F6] ml-2">
               <FaExclamation />
-              {project?.work}
             </Button>
           </span>
           <p className="text-base text-wrap prose font-light text-gray-700 mt-2 flex-grow">
@@ -99,6 +98,17 @@ const ProjectPage = async ({
             height={900}
             className="rounded-sm w-full h-auto"
           />
+          {project.video && (
+            <video
+              controls
+              className="rounded-sm w-full h-auto mt-6"
+              width={900}
+              height={900}
+            >
+              <source src={`/video/${project.video}`} type="video/mp4" />
+              Your browser does not support the video tag.
+            </video>
+          )}
         </div>
       </div>
     </div>

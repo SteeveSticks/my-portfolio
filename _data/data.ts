@@ -25,6 +25,30 @@ export const projects = [
       "I built a Notion-like clone using React with TypeScript, integrating Liveblocks for real-time collaboration and typing indicators, allowing users to see each other's edits instantly. Clerk handles user authentication and Firebase handles document storage. I added an OpenAI-like chat feature using Cloudflare Workers for language processing, enabling smart document suggestions and conversations. This solution enhances teamwork and productivity, built with a focus on real-time performance and AI-driven assistance.",
   },
   {
+    name: "Halamd🍀",
+    slug: "ai-mood-stylist",
+    show: "Built with Next.js and Tailwind, leveraging OpenAI’s GPT and DALL·E 3 to suggest and visualize stylish outfits tailored to a user’s mood.",
+    desc: "Halamd is an AI Mood Stylist your personal, intelligent fashion companion that curates outfits based on your mood, style preferences, and the occasion. Using advanced AI and machine learning, it analyzes your emotional state (through quick mood inputs or even image analysis) and suggests clothing combinations that not only match your vibe but also boost your confidence. Whether you’re feeling bold, relaxed, romantic, or ready to conquer the world, AI Mood Stylist ensures you step out looking as good as you feel — every single day.",
+    lang: [
+      "Next.js",
+      "TypeScript",
+      "Tailwind CSS 4",
+      "Framer Motion",
+      "OpenAI",
+      "State Management & UX",
+      "Vercel",
+      "Github",
+    ],
+    img: "halamd-image.png",
+    video: "halamd-demo.mp4",
+    link: "https://halamdcom.vercel.app/",
+    git: "https://github.com/SteeveSticks/Assistly-Ai-Agent-Bot",
+    problem:
+      "Choosing what to wear can be stressful and time-consuming, especially when you want your outfit to reflect your mood, style, and the occasion. Many people struggle to find creative, stylish, and mood-appropriate outfit ideas without spending hours browsing.",
+    solution:
+      "We built AI Mood Stylist — an AI-powered web app that uses OpenAI’s GPT and DALL·E 3 to instantly suggest and visualize outfits tailored to a user’s gender and mood. The app provides detailed style recommendations and generates photorealistic outfit images, making it easy for anyone to dress confidently and effortlessly.",
+  },
+  {
     name: "StartupFounder",
     slug: "startup-founder",
     show: "Sanity used for dynamic sections, animation with Framer Motion aligning with my goal to empower developers in London’s tech scene",
@@ -110,63 +134,5 @@ export const projects = [
       "While working with a freelance client in the Web3 space, I noticed that many crypto projects suffer from unprofessional or inaccessible websites, which undermines their credibility and deters potential investors or users from engaging with their vision.",
     solution:
       "I built Pentagon Tokens, a responsive marketing website to elevate the client’s crypto project. Using React and Tailwind CSS 3, I created a sleek, mobile-friendly frontend optimized for performance, with Cloudinary managing high-quality images. The backend, powered by Node.js, Express, and MongoDB, handles data efficiently. I integrated EmailJS for a live contact form, enabling direct user inquiries that boosted engagement by 20% based on client feedback. This solution enhanced the project’s professional image and accessibility, attracting more stakeholders.",
-  },
-  {
-    name: "TODO App",
-    slug: "todo-app",
-    show: "It uses basic technologies like React and Redux, ensuring a fast and distraction-free experience for users tracking daily priorities.",
-    desc: "A minimalistic todo app with streamlined tool designed for efficient task management, featuring a clean interface to add, edit, and complete tasks. Built with a focus on usability,",
-    lang: ["React", "Redux", "Javascript", "CSS"],
-    img: "todoappimgae.png",
-    link: "https://todoapp-six-tau-67.vercel.app/",
-    git: "https://github.com/SteeveSticks/TODO-LIST-",
-    problem:
-      "During my daily routine, I found that existing task management apps were often bloated with features, causing distractions and slowing down productivity. Users needed a simple tool to organize tasks without unnecessary complexity.",
-    solution:
-      "I developed the TODO App to provide a distraction-free task management experience. Built with React and JavaScript, the app features a clean, intuitive interface for adding, editing, and completing tasks. Redux manages state to ensure fast updates, while CSS styles keep the design minimal yet functional. I focused on usability by streamlining interactions, such as single-click task completion, resulting in a lightweight app that loads in under 1 second. This solution helps users stay organized and productive with minimal effort.",
-  },
-  {
-    name: "Silent Alarm App",
-    slug: "slient-alarm-app",
-    show: "Monetization with Stripe, clean mobile UI, fast response features",
-    work: "Still in Building Phase",
-    desc: "A silent panic button app for emergency situations. Designed for quick, discreet alerts to a trusted contact, ideal for personal safety or high-risk environments.",
-    lang: [
-      "React Native",
-      "Firebase (Auth + Firestore)",
-      "Expo",
-      "Stripe",
-      "Tailwind CSS 3",
-    ],
-    img: "silentalarmimage.png",
-    link: "https://github.com/SteeveSticks/SILENT-ALARM-APP",
-    git: "https://github.com/SteeveSticks/SILENT-ALARM-APP",
-    problem:
-      "I recognized a critical safety issue: in emergencies, especially in high-risk environments, individuals need a way to alert trusted contacts discreetly without escalating danger. Traditional alarms or phone calls are often too conspicuous or slow, putting users at risk.",
-    solution:
-      "I’m building the Silent Alarm App to address this gap, using React Native and Expo for a cross-platform mobile app with a clean UI styled by Tailwind CSS 3. The app features a silent panic button that sends GPS-tracked alerts to trusted contacts via Firebase Firestore, ensuring real-time communication. Firebase Auth secures user accounts, while Stripe integrates monetization for premium features like multiple contacts. I optimized for fast response times (under 2 seconds for alerts) by leveraging Firebase’s real-time database, enhancing safety for users in vulnerable situations.",
-  },
-  {
-    name: "HydraMind (Hackathon Project)",
-    slug: "hydramind",
-    show: "Handled auth + frontend, worked with team, built fast, AI + teamwork, deadline-driven development",
-    work: "Still in building phase",
-    desc: "AI-powered hydration assistant that gives personalized water intake recommendations, sends smart reminders, and adapts over time to user needs.",
-    lang: [
-      "React (TypeScript + Vite)",
-      "TanStack Router",
-      "TanStack Query",
-      "Node.js",
-      "Express",
-      "MongoDB",
-      "BetterAuth",
-    ],
-    img: "hydramindappimage.png",
-    link: "https://github.com/codewithkin/hydramind",
-    git: "https://github.com/codewithkin/hydramind",
-    problem:
-      "During a hackathon, my team and I noticed that many people neglect hydration due to busy schedules and lack of tailored guidance, leading to health issues like fatigue. Existing apps often provide generic reminders, failing to account for individual needs or lifestyles.",
-    solution:
-      "We developed HydraMind, an AI-powered hydration assistant, with me leading the frontend and authentication. Using React with TypeScript and Vite, I built a fast, type-safe UI, styled for clarity. TanStack Router and Query optimized navigation and data fetching, while BetterAuth secured user logins. The backend, powered by Node.js, Express, and MongoDB, supports an AI model that analyzes user data (e.g., weight, activity level) to deliver personalized intake recommendations and smart reminders. Built under tight deadlines, HydraMind adapts to user habits, improving health outcomes with minimal effort.",
   },
 ];

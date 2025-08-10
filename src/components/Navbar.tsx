@@ -3,7 +3,11 @@ import { Button } from "./ui/button";
 import Link from "next/link";
 import { FiGithub } from "react-icons/fi";
 import { IoDocumentTextOutline } from "react-icons/io5";
-import { HoverCard, HoverCardTrigger, HoverCardContent } from "./ui/hover-card";
+import {
+  Tooltip,
+  TooltipContent,
+  TooltipTrigger,
+} from "@/components/ui/tooltip";
 
 const Navbar = () => {
   return (
@@ -36,8 +40,8 @@ const Navbar = () => {
         </div>
 
         <div className="flex-between gap-2 flex-wrap">
-          <HoverCard>
-            <HoverCardTrigger>
+          <Tooltip>
+            <TooltipTrigger>
               <Link
                 target="_blank"
                 rel="noreferrer"
@@ -45,11 +49,11 @@ const Navbar = () => {
               >
                 <FiGithub className="size-6 text-white hover:text-white/90 cursor-pointer mr-2" />
               </Link>
-            </HoverCardTrigger>
-            <HoverCardContent>GitHub</HoverCardContent>
-          </HoverCard>
-          <HoverCard>
-            <HoverCardTrigger>
+            </TooltipTrigger>
+            <TooltipContent>GitHub</TooltipContent>
+          </Tooltip>
+          <Tooltip>
+            <TooltipTrigger>
               <a
                 download
                 target="_blank"
@@ -58,10 +62,10 @@ const Navbar = () => {
               >
                 <IoDocumentTextOutline className="size-6 text-white hover:text-white/90 cursor-pointer" />
               </a>
-            </HoverCardTrigger>
+            </TooltipTrigger>
             <ul className="flex-between flex-wrap"></ul>
-            <HoverCardContent>Resume</HoverCardContent>
-          </HoverCard>
+            <TooltipContent>Resume</TooltipContent>
+          </Tooltip>
 
           <div className="border-l">
             <Button className="ml-2">
