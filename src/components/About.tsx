@@ -39,7 +39,7 @@ const About = () => {
           </p>
           <p className="mt-2">
             I’m also actively building my presence in the tech community. With
-            over <strong>180+ followers on X, </strong>
+            over <strong>200+ followers on X, </strong>
             I’ve learned and connected with top minds, mentors in the indie
             hacker and maker space — including people like{" "}
             <Link href="https://x.com/marc_louvion">
@@ -66,25 +66,30 @@ const About = () => {
         </div>
       </div>
 
-      <div className="flex justify-center mt-10 px-4">
-        <motion.div
-          whileHover={{ scale: 1.05 }}
-          whileTap={{ scale: 0.9 }}
-          transition={{ duration: 0.2 }}
-          className="py-2 px-3 bg-white shadow-sm rounded-sm w-fit"
-        >
-          <Image
-            src="/img/profile-pic.jpg"
-            width={200}
-            height={200}
-            alt="profile image"
-            className="rounded-sm bg-white w-full max-w-[200px]"
-          />
-          <span className="text-sm block text-center mt-1 text-gray-800">
-            @midecode
-          </span>
-        </motion.div>
-      </div>
+      <Link
+        href="https://www.linkedin.com/in/stephen-adebanjo-82a6ba359/"
+        target="_blank"
+      >
+        <div className="flex justify-center mt-10 px-4">
+          <motion.div
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.9 }}
+            transition={{ duration: 0.2 }}
+            className="py-2 px-3 bg-white shadow-sm rounded-sm w-fit"
+          >
+            <Image
+              src="/img/profile-pic.jpg"
+              width={200}
+              height={200}
+              alt="profile image"
+              className="rounded-sm bg-white w-full max-w-[200px]"
+            />
+            <span className="text-sm block text-center mt-1 text-gray-800">
+              @midecode
+            </span>
+          </motion.div>
+        </div>
+      </Link>
 
       <div className="flex justify-center mt-6 px-4">
         <Button className="!bg-black/90 text-white !cursor-pointer !py-4 !px-6 hover:!bg-black/82">
