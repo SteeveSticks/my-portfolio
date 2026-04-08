@@ -1,12 +1,15 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useState, useRef } from "react";
 import { Button } from "./ui/button";
 import { toast } from "sonner";
+import { motion, useInView } from "framer-motion";
 
 const Contact = () => {
   const [form, setForm] = useState({ name: "", email: "", message: "" });
   const [loading, setLoading] = useState(false);
+  const ref = useRef(null);
+  const isInView = useInView(ref, { once: true, margin: "-100px" });
 
   async function handleSubmit(e: React.FormEvent) {
     e.preventDefault();
@@ -29,8 +32,13 @@ const Contact = () => {
   }
 
   return (
-    <div id="contact" className="px-4 sm:px-8 md:px-14 mt-30">
-      <div className="grid text-wrap">
+    <div id="contact" ref={ref} className="px-4 sm:px-8 md:px-14 mt-30">
+      <motion.div
+        initial={{ opacity: 0, y: 30 }}
+        animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
+        transition={{ duration: 0.6, ease: "easeOut" }}
+        className="grid text-wrap"
+      >
         <h1 className="text-black font-bold text-3xl">Get in touch</h1>
 
         <p className="prose mt-2 text-gray-600">
@@ -39,9 +47,14 @@ const Contact = () => {
           with people who love building meaningful things. Drop a message, and
           I&apos;ll get back to you as soon as I can!
         </p>
-      </div>
+      </motion.div>
 
-      <div className="py-2">
+      <motion.div
+        initial={{ opacity: 0, y: 30 }}
+        animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
+        transition={{ duration: 0.6, delay: 0.2, ease: "easeOut" }}
+        className="py-2"
+      >
         <div className="mt-8">
           <form onSubmit={handleSubmit} className="">
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-8">
@@ -86,7 +99,7 @@ const Contact = () => {
             </div>
           </form>
         </div>
-      </div>
+      </motion.div>
     </div>
   );
 };
