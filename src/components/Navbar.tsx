@@ -1,3 +1,5 @@
+"use client";
+
 import React from "react";
 import { Button } from "./ui/button";
 import Link from "next/link";
@@ -10,6 +12,18 @@ import {
 } from "@/components/ui/tooltip";
 
 const Navbar = () => {
+  const handleResumeClick = () => {
+    const resumeUrl = "/adebanjo-stephen-resume.pdf";
+    window.open(resumeUrl, "_blank", "noopener,noreferrer");
+
+    const downloadLink = document.createElement("a");
+    downloadLink.href = resumeUrl;
+    downloadLink.download = "Adebanjo-Stephen-Resume.pdf";
+    document.body.appendChild(downloadLink);
+    downloadLink.click();
+    document.body.removeChild(downloadLink);
+  };
+
   return (
     <header className="py-4">
       <nav className="max-w-[586px] mx-auto bg-black/85 flex flex-wrap justify-between items-center py-2 px-4 rounded-full border outline-none shadow-md fixed left-0 right-0 z-50">
@@ -54,14 +68,14 @@ const Navbar = () => {
           </Tooltip>
           <Tooltip>
             <TooltipTrigger>
-              <a
-                download
-                target="_blank"
-                rel="noopener noreferrer"
-                href="/Resume (7).pdf"
+              <button
+                type="button"
+                onClick={handleResumeClick}
+                className="text-white hover:text-white/90 cursor-pointer"
+                aria-label="Open and download resume"
               >
-                <IoDocumentTextOutline className="size-6 text-white hover:text-white/90 cursor-pointer" />
-              </a>
+                <IoDocumentTextOutline className="size-6" />
+              </button>
             </TooltipTrigger>
             <ul className="flex-between flex-wrap"></ul>
             <TooltipContent>Resume</TooltipContent>
