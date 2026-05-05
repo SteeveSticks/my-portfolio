@@ -24,7 +24,7 @@ const Contact = () => {
     setLoading(false);
 
     if (res.ok) {
-      toast.success("Message sent 💜!");
+      toast.success("Message sent!. Thank you for reaching out.");
       setForm({ name: "", email: "", message: "" });
     } else {
       toast.error("Something went wrong. Please try again.");

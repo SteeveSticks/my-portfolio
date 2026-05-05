@@ -27,7 +27,7 @@ const About = () => {
             building impactful web experiences.
           </p>
           <p className="mt-2">
-            At 17, I’ve already built and shipped real-world AI products and I’m just getting started. I love solving
+            I’ve built and shipped real-world AI products and I’m just getting started. I love solving
             real problems through tech, learning fast, and creating beautiful,
             high-performing user interfaces.
           </p>

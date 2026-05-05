@@ -45,27 +45,6 @@ const Experience = () => {
           <motion.div
             initial={{ opacity: 0, x: -30 }}
             animate={isInView ? { opacity: 1, x: 0 } : { opacity: 0, x: -30 }}
-            transition={{ duration: 0.6, delay: 0.4, ease: "easeOut" }}
-            className="md:flex md:items-center md:justify-between grid mt-8"
-          >
-            <span className="md:text-sm text-[13px] text-gray-500 px-2 mb-2">
-              2025-2026
-            </span>
-
-            <div className="flex-center">
-              <h1 className="text-gray-500 max-sm:hidden">
-                Frontend Developer at
-              </h1>
-              <Button className="bg-[#EEF4FF] text-[#3B82F6] ml-2">
-                <Star />
-                Bright <span className="text-yellow-600/90">Sparks Academy</span>
-              </Button>
-            </div>
-          </motion.div>
-
-          <motion.div
-            initial={{ opacity: 0, x: -30 }}
-            animate={isInView ? { opacity: 1, x: 0 } : { opacity: 0, x: -30 }}
             transition={{ duration: 0.6, delay: 0.6, ease: "easeOut" }}
             className="md:flex md:items-center md:justify-between grid mt-8"
           >
@@ -109,6 +88,27 @@ const Experience = () => {
             </div>
           </motion.div>
         </motion.div>
+
+        <motion.div
+            initial={{ opacity: 0, x: -30 }}
+            animate={isInView ? { opacity: 1, x: 0 } : { opacity: 0, x: -30 }}
+            transition={{ duration: 0.6, delay: 0.4, ease: "easeOut" }}
+            className="md:flex md:items-center md:justify-between grid mt-8"
+          >
+            <span className="md:text-sm text-[13px] text-gray-500 px-2 mb-2">
+              2025-2026
+            </span>
+
+            <div className="flex-center">
+              <h1 className="text-gray-500 max-sm:hidden">
+                Frontend Developer at
+              </h1>
+              <Button className="bg-[#EEF4FF] text-[#3B82F6] ml-2">
+                <Star />
+                Bright <span className="text-yellow-600/90">Sparks Academy</span>
+              </Button>
+            </div>
+          </motion.div>
 
         <motion.div
           initial={{ opacity: 0, y: 30 }}
