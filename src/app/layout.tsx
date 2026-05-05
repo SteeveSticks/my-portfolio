@@ -36,9 +36,9 @@ export const metadata: Metadata = {
   publisher: "Adebanjo Stephen",
   formatDetection: { email: false, address: false, telephone: false },
   icons: {
-    // icon: "/profile-image.jpg",
-    // shortcut: "/profile-image.jpg",
-    apple: "/profile-image.jpg",
+    icon: "/favicon.ico",
+    shortcut: "/favicon.ico",
+    apple: "/favicon.ico",
   },
   openGraph: {
     type: "website",
