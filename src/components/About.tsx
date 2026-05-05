@@ -21,7 +21,7 @@ const About = () => {
         >
           <div className="font-bold text-3xl text-black/90">About</div>
           <p>
-            I&apos;m Adebanjo Stephen, a passionate 17-year-old self-taught
+            I&apos;m Adebanjo Stephen, a passionate self-taught
             Nigerian software engineer and an aspiring AI & Machine Language
             Expert with over 2yr +2 months of experience and a strong drive for
             building impactful web experiences.
