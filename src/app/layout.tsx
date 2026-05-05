@@ -36,8 +36,8 @@ export const metadata: Metadata = {
   publisher: "Adebanjo Stephen",
   formatDetection: { email: false, address: false, telephone: false },
   icons: {
-    icon: "/profile-image.jpg",
-    shortcut: "/profile-image.jpg",
+    // icon: "/profile-image.jpg",
+    // shortcut: "/profile-image.jpg",
     apple: "/profile-image.jpg",
   },
   openGraph: {
@@ -96,6 +96,7 @@ export const metadata: Metadata = {
       name: "Adebanjo Stephen",
       url: "https://myportfoliome.vercel.app",
       image: "https://myportfoliome.vercel.app/img/profile-pic.jpg",
+      email: "mailto:contact@myportfoliome.vercel.app",
       sameAs: [
         "https://github.com/SteeveSticks",
         "https://x.com/AdebanjoSt63916",
@@ -116,6 +117,27 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
+      <head>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "Organization",
+              name: "Adebanjo Stephen",
+              url: "https://myportfoliome.vercel.app",
+              logo: "https://myportfoliome.vercel.app/img/profile-pic.jpg",
+              description:
+                "Software Engineer specializing in Frontend, Backend, and Full-stack development",
+              sameAs: [
+                "https://github.com/SteeveSticks",
+                "https://x.com/AdebanjoSt63916",
+                "https://www.linkedin.com/in/stephen-adebanjo-82a6ba359/"
+              ],
+            }),
+          }}
+        />
+      </head>
       <body className={`${geistSans.variable} antialiased`}>
         <main className="font-sans border-b border-l border-r max-w-3xl mx-auto">
           <Navbar />
