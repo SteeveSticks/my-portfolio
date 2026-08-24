@@ -1,6 +1,11 @@
 "use client";
 
-import React, { useRef, useState, useCallback, useEffect } from "react";
+import React, {
+  useRef,
+  useState,
+  useCallback,
+  useEffect,
+} from "react";
 import { motion, useInView, AnimatePresence } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { ExternalLink, X } from "lucide-react";
@@ -15,14 +20,20 @@ type Project = {
   desc: string;
   lang: string[];
   img: string;
+  vid?: string;
   img2?: string;
   img3?: string;
   link: string;
   git: string;
 };
 
-export function ProjectPageContent({ project }: { project: Project }) {
+export function ProjectPageContent({
+  project,
+}: {
+  project: Project;
+}) {
   const ref = useRef(null);
+  const videoRef = useRef<HTMLVideoElement>(null);
   const isInView = useInView(ref, { once: true, margin: "-80px" });
   const [lightboxSrc, setLightboxSrc] = useState<string | null>(null);
 
@@ -45,16 +56,33 @@ export function ProjectPageContent({ project }: { project: Project }) {
     };
     if (lightboxSrc) {
       window.addEventListener("keydown", handleEscape);
-      return () => window.removeEventListener("keydown", handleEscape);
+      return () =>
+        window.removeEventListener("keydown", handleEscape);
     }
   }, [lightboxSrc, closeLightbox]);
+
+  useEffect(() => {
+    const video = videoRef.current;
+    if (!video || !project.vid) return;
+
+    video.muted = true;
+    const playVideo = () => {
+      void video.play().catch(() => undefined);
+    };
+
+    playVideo();
+    video.addEventListener("canplay", playVideo);
+    return () => video.removeEventListener("canplay", playVideo);
+  }, [project.vid]);
 
   return (
     <div className="py-3 px-4 sm:px-6 md:px-10">
       <div ref={ref} className="mt-30 text-wrap">
         <motion.div
           initial={{ opacity: 0, y: 40 }}
-          animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 40 }}
+          animate={
+            isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 40 }
+          }
           transition={{ duration: 0.85, ease: "easeOut" }}
         >
           <div>
@@ -107,24 +135,46 @@ export function ProjectPageContent({ project }: { project: Project }) {
           </div>
 
           <div className="mt-12">
-            <div
-              role="button"
-              tabIndex={0}
-              onClick={() => setLightboxSrc(`/img/${project.img}`)}
-              onKeyDown={(e) =>
-                e.key === "Enter" && setLightboxSrc(`/img/${project.img}`)
-              }
-              className="bg-gray-50/85 border px-2 sm:px-4 md:px-7 py-2 sm:py-4 md:py-7 rounded-2xl cursor-pointer"
-              aria-label="View image larger"
-            >
-              <Image
-                src={`/img/${project.img}`}
-                alt={`Screenshot of ${project.name} project`}
-                width={900}
-                height={900}
-                className="rounded-2xl w-full h-auto shadow-md"
-              />
-            </div>
+            {project.vid ? (
+              <div className="bg-gray-50/85 border px-2 sm:px-4 md:px-7 py-2 sm:py-4 md:py-7 rounded-2xl">
+                <video
+                  autoPlay
+                  disablePictureInPicture
+                  loop
+                  muted
+                  preload="metadata"
+                  playsInline
+                  ref={videoRef}
+                  className="rounded-2xl w-full h-auto shadow-md"
+                >
+                  <source
+                    src={`/video/${project.vid}`}
+                    type="video/mp4"
+                  />
+                  Your browser does not support the video tag.
+                </video>
+              </div>
+            ) : (
+              <div
+                role="button"
+                tabIndex={0}
+                onClick={() => setLightboxSrc(`/img/${project.img}`)}
+                onKeyDown={(e) =>
+                  e.key === "Enter" &&
+                  setLightboxSrc(`/img/${project.img}`)
+                }
+                className="bg-gray-50/85 border px-2 sm:px-4 md:px-7 py-2 sm:py-4 md:py-7 rounded-2xl cursor-pointer"
+                aria-label="View image larger"
+              >
+                <Image
+                  src={`/img/${project.img}`}
+                  alt={`Screenshot of ${project.name} project`}
+                  width={900}
+                  height={900}
+                  className="rounded-2xl w-full h-auto shadow-md"
+                />
+              </div>
+            )}
 
             {(project.img2 ?? project.img3) && (
               <div className="flex justify-center items-center gap-4 mt-10">
@@ -145,8 +195,8 @@ export function ProjectPageContent({ project }: { project: Project }) {
                     <Image
                       src={`/img/${project.img2}`}
                       alt={`Screenshot of ${project.name} project`}
-                      width={400}
-                      height={400}
+                      width={650}
+                      height={650}
                       className="rounded-2xl w-full h-auto shadow-md"
                     />
                   </div>
@@ -168,8 +218,8 @@ export function ProjectPageContent({ project }: { project: Project }) {
                     <Image
                       src={`/img/${project.img3}`}
                       alt={`Screenshot of ${project.name} project`}
-                      width={400}
-                      height={400}
+                      width={650}
+                      height={650}
                       className="rounded-2xl w-full h-auto shadow-md"
                     />
                   </div>

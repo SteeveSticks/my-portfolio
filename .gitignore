@@ -20,6 +20,9 @@
 # production
 /build
 
+# local media assets
+/public/video/
+
 # misc
 .DS_Store
 *.pem

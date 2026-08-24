@@ -67,9 +67,10 @@ const About = () => {
               <strong>@levelsio</strong>
             </Link>
             —has fundamentally shaped how I think about
-            product-building, growth, and shipping fast. I play both a
-            keyboard and drums as well.
+            product-building, growth, and shipping fast. 
           </p>
+          <p>I also love music and play both a
+            keyboard and a drum.</p>
         </motion.div>
       </div>
 
