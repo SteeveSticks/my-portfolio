@@ -43,8 +43,8 @@ const Hero = () => {
           transition={{ duration: 0.6, delay: 0.2, ease: "easeOut" }}
           className=""
         >
-          <h1 className="font-bold md:leading-14 leading-8 md:text-[50px] text-[28px]">
-            Hi, I&apos;m Adebanjo Stephen.
+          <h1 className="font-bold md:leading-14 leading-8 md:text-[50px] text-[30px]">
+            <span>Hi, I&apos;m Adebanjo Stephen.</span>
             <br />
             <motion.span
               initial={{ opacity: 0, clipPath: "inset(0 100% 0 0)" }}
@@ -58,7 +58,7 @@ const Hero = () => {
                 delay: 0.55,
                 ease: "easeOut",
               }}
-              className="block md:text-[46px] text-[22px]"
+              className="block md:text-[46px] text-[25px]"
             >
               AI / ML Engineer
             </motion.span>

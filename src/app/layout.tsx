@@ -4,7 +4,7 @@ import "./globals.css";
 import Navbar from "@/components/Navbar";
 import { Toaster } from "@/components/ui/sonner";
 import Footer from "@/components/Footer";
-import { Analytics } from "@vercel/analytics/next"
+import { Analytics } from "@vercel/analytics/next";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -63,7 +63,7 @@ export const metadata: Metadata = {
     title: "Adebanjo Stephen | Software Engineer",
     description:
       "Self-taught software engineer and entrepreneur, specializing in Frontend, Backend, Full-stack development with Next.js, JavaScript, and TypeScript.",
-    creator: "@AdebanjoSt63916",
+    creator: "@Midecodez",
     images: ["https://myportfoliome.vercel.app/img/profile-pic.jpg"],
   },
   robots: {
@@ -100,7 +100,7 @@ export const metadata: Metadata = {
       email: "mailto:contact@myportfoliome.vercel.app",
       sameAs: [
         "https://github.com/SteeveSticks",
-        "https://x.com/AdebanjoSt63916",
+        "https://x.com/Midecodez",
       ],
       jobTitle: "Software Engineer",
       worksFor: {
@@ -132,8 +132,8 @@ export default function RootLayout({
                 "Software Engineer specializing in Frontend, Backend, and Full-stack development",
               sameAs: [
                 "https://github.com/SteeveSticks",
-                "https://x.com/AdebanjoSt63916",
-                "https://www.linkedin.com/in/stephen-adebanjo-82a6ba359/"
+                "https://x.com/Midecodez",
+                "https://www.linkedin.com/in/stephen-adebanjo-82a6ba359/",
               ],
             }),
           }}
@@ -144,7 +144,7 @@ export default function RootLayout({
           <Navbar />
           {children}
           <Footer />
-          <Analytics/>
+          <Analytics />
         </main>
         <Toaster />
       </body>

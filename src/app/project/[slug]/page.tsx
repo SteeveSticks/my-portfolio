@@ -62,15 +62,7 @@ const ProjectPage = async ({
 
   if (!project) return notFound();
 
-  return (
-    <ProjectPageContent
-      project={{
-        ...project,
-        img2: project.img2,
-        img3: project.img3,
-      }}
-    />
-  );
+  return <ProjectPageContent project={project} />;
 };
 
 export default ProjectPage;
