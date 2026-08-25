@@ -12,6 +12,7 @@ _These are recommendations to keep your build orderly, not requirements._
 | # | Feature | Phase | Status |
 |---|---------|-------|--------|
 | 1 | RAG Pipelines | Slice 1 | in-progress |
+| 2 | Media performance | Slice 2 | in-progress |
 
 ## Slice 1: RAG Pipelines
 
@@ -25,6 +26,20 @@ Add a RAG Pipelines card to the shipped catalog (homepage second, also on All Sh
    - [x] Filter, SEO, and the 10 notebook rows (AC-8, AC-11, AC-7, AC-10)
 - [ ] Verify it: `/check verify RAG Pipelines`
 Spec [0001](../specs/0001-rag-pipelines/index.md)
+
+## Slice 2: Media performance
+
+### 2. Media performance · in-progress
+Make project demo pages cheaper to load: videos wait until they are on screen, heavy screenshots shrink on disk, unused files leave the deploy. Homepage LCP under 2.5s on a mid range phone.
+**Done when:** a project page with a video does not fetch the MP4 until the player is on screen; gallery sources are no longer multi megabyte; unreferenced public files are gone; homepage LCP is under 2.5s on a throttled mobile profile.
+- [x] Design it (spec): `/architect Media performance`
+- [x] Build it: `/develop Media performance`
+   - [x] Video loading on project pages (AC-2, AC-3, AC-4, AC-5, AC-6, AC-7, AC-13)
+   - [x] Shrink images, next/image hints, cache headers (AC-8, AC-9, AC-10, AC-11)
+   - [x] Drop unused public files; keep data.ts media fields (AC-12, AC-14)
+   - code in `src/components/ProjectPageContent.tsx`, `src/components/Hero.tsx`, `src/components/About.tsx`, `src/components/Project.tsx`, `src/app/projects/page.tsx`, `next.config.ts`, `public/img/`, `public/video/`
+- [ ] Verify it: `/check verify Media performance`
+Spec [0002](../specs/0002-media-performance/index.md)
 
 ## Deferred
 

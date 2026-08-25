@@ -30,8 +30,10 @@ const Hero = () => {
             src="/img/profile-image.jpg"
             className="rounded-full md:size-40 size-28"
             alt="profile logo"
-            width={100}
-            height={100}
+            width={160}
+            height={160}
+            priority
+            sizes="(max-width: 768px) 112px, 160px"
           />
         </motion.div>
 

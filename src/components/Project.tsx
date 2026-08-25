@@ -48,6 +48,7 @@ const Project = () => {
                       alt={data.name}
                       width={900}
                       height={900}
+                      sizes="(max-width: 640px) 100vw, 380px"
                       className="rounded-sm w-full h-auto shadow-md"
                     />
                   </motion.div>

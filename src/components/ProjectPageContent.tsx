@@ -6,7 +6,12 @@ import React, {
   useCallback,
   useEffect,
 } from "react";
-import { motion, useInView, AnimatePresence } from "framer-motion";
+import {
+  motion,
+  useInView,
+  useReducedMotion,
+  AnimatePresence,
+} from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { ExternalLink, X } from "lucide-react";
 import Link from "next/link";
@@ -23,8 +28,17 @@ export function ProjectPageContent({
 }) {
   const ref = useRef(null);
   const videoRef = useRef<HTMLVideoElement>(null);
+  const videoWrapRef = useRef<HTMLDivElement>(null);
   const isInView = useInView(ref, { once: true, margin: "-80px" });
+  const videoInView = useInView(videoWrapRef, {
+    amount: 0.35,
+    once: false,
+  });
+  const reduceMotion = useReducedMotion() !== false;
   const [lightboxSrc, setLightboxSrc] = useState<string | null>(null);
+  const [videoFailed, setVideoFailed] = useState(false);
+  const [playIntent, setPlayIntent] = useState(false);
+  const [srcAttached, setSrcAttached] = useState(false);
 
   const closeLightbox = useCallback(() => setLightboxSrc(null), []);
 
@@ -56,18 +70,42 @@ export function ProjectPageContent({
   }, [lightboxSrc, closeLightbox]);
 
   useEffect(() => {
+    setSrcAttached(false);
+    setVideoFailed(false);
+    setPlayIntent(false);
+  }, [project.slug, project.vid]);
+
+  useEffect(() => {
+    if (!project.vid) return;
+    const shouldAttach =
+      playIntent || (videoInView && !reduceMotion);
+    if (shouldAttach) setSrcAttached(true);
+  }, [project.vid, playIntent, videoInView, reduceMotion]);
+
+  useEffect(() => {
     const video = videoRef.current;
-    if (!video || !project.vid) return;
+    if (!video || !project.vid || !srcAttached) return;
 
     video.muted = true;
-    const playVideo = () => {
-      void video.play().catch(() => undefined);
+    const shouldPlay =
+      videoInView && (!reduceMotion || playIntent);
+
+    const syncPlayback = () => {
+      if (shouldPlay) {
+        void video.play().catch(() => undefined);
+      } else {
+        video.pause();
+      }
     };
 
-    playVideo();
-    video.addEventListener("canplay", playVideo);
-    return () => video.removeEventListener("canplay", playVideo);
-  }, [project.vid]);
+    syncPlayback();
+    video.addEventListener("canplay", syncPlayback);
+    return () => video.removeEventListener("canplay", syncPlayback);
+  }, [project.vid, srcAttached, videoInView, reduceMotion, playIntent]);
+
+  const handleVideoActivate = useCallback(() => {
+    if (reduceMotion) setPlayIntent(true);
+  }, [reduceMotion]);
 
   return (
     <div className="py-3 px-4 sm:px-6 md:px-10">
@@ -157,22 +195,41 @@ export function ProjectPageContent({
 
               {/* Standard variant: video or main image */}
               <div className="mt-12">
-                {project.vid ? (
-                  <div className="bg-gray-50/85 border px-2 sm:px-4 md:px-7 py-2 sm:py-4 md:py-7 rounded-2xl">
+                {project.vid && !videoFailed ? (
+                  <div
+                    ref={videoWrapRef}
+                    className="bg-gray-50/85 border px-2 sm:px-4 md:px-7 py-2 sm:py-4 md:py-7 rounded-2xl"
+                  >
                     <video
-                      autoPlay
+                      ref={videoRef}
+                      poster={`/img/${project.img}`}
+                      src={
+                        srcAttached
+                          ? `/video/${project.vid}`
+                          : undefined
+                      }
                       disablePictureInPicture
                       loop
                       muted
-                      preload="metadata"
+                      preload="none"
                       playsInline
-                      ref={videoRef}
-                      className="rounded-2xl w-full h-auto shadow-md"
+                      onError={() => setVideoFailed(true)}
+                      onClick={handleVideoActivate}
+                      onKeyDown={(e) => {
+                        if (e.key === "Enter" || e.key === " ") {
+                          e.preventDefault();
+                          handleVideoActivate();
+                        }
+                      }}
+                      tabIndex={reduceMotion ? 0 : undefined}
+                      role={reduceMotion ? "button" : undefined}
+                      aria-label={
+                        reduceMotion
+                          ? `Play ${project.name} demo video`
+                          : `${project.name} demo video`
+                      }
+                      className={`rounded-2xl w-full h-auto shadow-md focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black${reduceMotion ? " cursor-pointer" : ""}`}
                     >
-                      <source
-                        src={`/video/${project.vid}`}
-                        type="video/mp4"
-                      />
                       Your browser does not support the video tag.
                     </video>
                   </div>
@@ -193,6 +250,7 @@ export function ProjectPageContent({
                       alt={`Screenshot of ${project.name} project`}
                       width={900}
                       height={900}
+                      sizes="(max-width: 768px) 100vw, 672px"
                       className="rounded-2xl w-full h-auto shadow-md"
                     />
                   </div>
@@ -219,6 +277,7 @@ export function ProjectPageContent({
                           alt={`Screenshot of ${project.name} project`}
                           width={650}
                           height={650}
+                          sizes="(max-width: 640px) 45vw, 280px"
                           className="rounded-2xl w-full h-auto shadow-md"
                         />
                       </div>
@@ -242,6 +301,7 @@ export function ProjectPageContent({
                           alt={`Screenshot of ${project.name} project`}
                           width={650}
                           height={650}
+                          sizes="(max-width: 640px) 45vw, 280px"
                           className="rounded-2xl w-full h-auto shadow-md"
                         />
                       </div>
@@ -286,6 +346,7 @@ export function ProjectPageContent({
                         alt={`Screenshot of ${project.name} project`}
                         width={1200}
                         height={1200}
+                        sizes="90vw"
                         className="rounded-xl max-h-[90vh] w-auto h-auto object-contain shadow-2xl"
                       />
                     </motion.div>
