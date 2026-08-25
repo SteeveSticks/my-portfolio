@@ -20,8 +20,9 @@
 # production
 /build
 
-# local media assets
-/public/video/
+# uncompressed video backups (compressed mp4s in public/video are tracked)
+/public/video/_originals/
+/public/video/_tmp-*.mp4
 
 # misc
 .DS_Store
