@@ -16,7 +16,7 @@ const Hero = () => {
     <div>
       <section
         ref={ref}
-        className="grid justify-center items-center text-center py-24 md:mt-36 space-y-6"
+        className="grid justify-center items-center text-center py-24 md:mt-20 space-y-6"
       >
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -30,8 +30,10 @@ const Hero = () => {
             src="/img/profile-image.jpg"
             className="rounded-full md:size-40 size-28"
             alt="profile logo"
-            width={100}
-            height={100}
+            width={160}
+            height={160}
+            priority
+            sizes="(max-width: 768px) 112px, 160px"
           />
         </motion.div>
 
@@ -43,8 +45,8 @@ const Hero = () => {
           transition={{ duration: 0.6, delay: 0.2, ease: "easeOut" }}
           className=""
         >
-          <h1 className="font-bold md:leading-14 leading-8 md:text-[50px] text-[28px]">
-            Hi, I&apos;m Adebanjo Stephen.
+          <h1 className="font-bold md:leading-14 leading-8 md:text-[50px] text-[30px]">
+            <span>Hi, I&apos;m Adebanjo Stephen.</span>
             <br />
             <motion.span
               initial={{ opacity: 0, clipPath: "inset(0 100% 0 0)" }}
@@ -58,7 +60,7 @@ const Hero = () => {
                 delay: 0.55,
                 ease: "easeOut",
               }}
-              className="block md:text-[46px] text-[22px]"
+              className="block md:text-[46px] text-[25px]"
             >
               AI / ML Engineer
             </motion.span>

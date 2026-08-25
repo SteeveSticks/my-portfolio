@@ -105,6 +105,7 @@ const About = () => {
                   width={180}
                   height={400}
                   alt="profile image"
+                  sizes="180px"
                   className="rounded-sm bg-white w-full"
                 />
                 <span className="text-sm block text-center mt-1 text-gray-800">
@@ -143,6 +144,7 @@ const About = () => {
                   width={180}
                   height={400}
                   alt="profile image"
+                  sizes="180px"
                   className="rounded-sm bg-white w-full"
                 />
                 <span className="text-sm block text-center mt-1 text-gray-800">
@@ -183,6 +185,7 @@ const About = () => {
                   width={200}
                   height={200}
                   alt="profile image"
+                  sizes="200px"
                   className="rounded-sm bg-white w-full max-w-[200px]"
                 />
                 <span className="text-sm block text-center mt-1 text-gray-800">

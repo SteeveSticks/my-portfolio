@@ -6,26 +6,20 @@ import React, {
   useCallback,
   useEffect,
 } from "react";
-import { motion, useInView, AnimatePresence } from "framer-motion";
+import {
+  motion,
+  useInView,
+  useReducedMotion,
+  AnimatePresence,
+} from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { ExternalLink, X } from "lucide-react";
 import Link from "next/link";
 import { FiGithub } from "react-icons/fi";
 import Image from "next/image";
-
-type Project = {
-  name: string;
-  slug: string;
-  show: string;
-  desc: string;
-  lang: string[];
-  img: string;
-  vid?: string;
-  img2?: string;
-  img3?: string;
-  link: string;
-  git: string;
-};
+import type { Project } from "../../_data/data";
+import { PipelineCard } from "./PipelineCard";
+import { filterPipelines } from "@/lib/filter-pipelines";
 
 export function ProjectPageContent({
   project,
@@ -34,10 +28,24 @@ export function ProjectPageContent({
 }) {
   const ref = useRef(null);
   const videoRef = useRef<HTMLVideoElement>(null);
+  const videoWrapRef = useRef<HTMLDivElement>(null);
   const isInView = useInView(ref, { once: true, margin: "-80px" });
+  const videoInView = useInView(videoWrapRef, {
+    amount: 0.35,
+    once: false,
+  });
+  const reduceMotion = useReducedMotion() !== false;
   const [lightboxSrc, setLightboxSrc] = useState<string | null>(null);
+  const [videoFailed, setVideoFailed] = useState(false);
+  const [playIntent, setPlayIntent] = useState(false);
+  const [srcAttached, setSrcAttached] = useState(false);
 
   const closeLightbox = useCallback(() => setLightboxSrc(null), []);
+
+  const hasPipelines = Array.isArray(project.pipelines);
+  const filteredPipelines = hasPipelines
+    ? filterPipelines(project.pipelines!)
+    : [];
 
   useEffect(() => {
     if (lightboxSrc !== null) {
@@ -62,18 +70,42 @@ export function ProjectPageContent({
   }, [lightboxSrc, closeLightbox]);
 
   useEffect(() => {
+    setSrcAttached(false);
+    setVideoFailed(false);
+    setPlayIntent(false);
+  }, [project.slug, project.vid]);
+
+  useEffect(() => {
+    if (!project.vid) return;
+    const shouldAttach =
+      playIntent || (videoInView && !reduceMotion);
+    if (shouldAttach) setSrcAttached(true);
+  }, [project.vid, playIntent, videoInView, reduceMotion]);
+
+  useEffect(() => {
     const video = videoRef.current;
-    if (!video || !project.vid) return;
+    if (!video || !project.vid || !srcAttached) return;
 
     video.muted = true;
-    const playVideo = () => {
-      void video.play().catch(() => undefined);
+    const shouldPlay =
+      videoInView && (!reduceMotion || playIntent);
+
+    const syncPlayback = () => {
+      if (shouldPlay) {
+        void video.play().catch(() => undefined);
+      } else {
+        video.pause();
+      }
     };
 
-    playVideo();
-    video.addEventListener("canplay", playVideo);
-    return () => video.removeEventListener("canplay", playVideo);
-  }, [project.vid]);
+    syncPlayback();
+    video.addEventListener("canplay", syncPlayback);
+    return () => video.removeEventListener("canplay", syncPlayback);
+  }, [project.vid, srcAttached, videoInView, reduceMotion, playIntent]);
+
+  const handleVideoActivate = useCallback(() => {
+    if (reduceMotion) setPlayIntent(true);
+  }, [reduceMotion]);
 
   return (
     <div className="py-3 px-4 sm:px-6 md:px-10">
@@ -85,6 +117,7 @@ export function ProjectPageContent({
           }
           transition={{ duration: 0.85, ease: "easeOut" }}
         >
+          {/* Heading and blurb (shared by all variants) */}
           <div>
             <h2 className="font-semibold text-[32px] sm:text-[38px] md:text-[45px]">
               {project.name}
@@ -94,6 +127,7 @@ export function ProjectPageContent({
             </p>
           </div>
 
+          {/* Description and Technologies box (shared by all variants) */}
           <div className="mt-8 rounded-xl border p-4 sm:p-6 md:p-4 bg-[#FAFAFA]">
             <span className="font-bold text-[16px] sm:text-[17px] md:text-[18px]">
               Description
@@ -120,155 +154,207 @@ export function ProjectPageContent({
             </div>
           </div>
 
-          <div className="py-2 flex justify-between gap-3 mt-8">
-            <Link target="_blank" href={project.link}>
-              <Button className="!py-6 mt-3 hover:!bg-black/82 !bg-black/90 text-white !cursor-pointer">
-                View Project <ExternalLink />
-              </Button>
-            </Link>
+          {/* Pipelines variant: skip live/Github/video/gallery, show pipeline list */}
+          {hasPipelines ? (
+            <div className="mt-10">
+              {filteredPipelines.length > 0 ? (
+                <div className="flex flex-col gap-4">
+                  {filteredPipelines.map((pipeline) => (
+                    <PipelineCard
+                      key={pipeline.url}
+                      pipeline={pipeline}
+                    />
+                  ))}
+                </div>
+              ) : (
+                <p className="text-gray-600 text-base mt-4">
+                  No pipelines listed yet.
+                </p>
+              )}
+            </div>
+          ) : (
+            <>
+              {/* Standard variant: live/Github buttons */}
+              <div className="py-2 flex justify-between gap-3 mt-8">
+                {project.link && (
+                  <Link target="_blank" href={project.link}>
+                    <Button className="!py-6 mt-3 hover:!bg-black/82 !bg-black/90 text-white !cursor-pointer">
+                      View Project <ExternalLink />
+                    </Button>
+                  </Link>
+                )}
 
-            <Link target="_blank" href={project.git}>
-              <Button className="!py-6 hover:!bg-black/82 mt-3 !bg-black/90 text-white !cursor-pointer">
-                Github <FiGithub />
-              </Button>
-            </Link>
-          </div>
-
-          <div className="mt-12">
-            {project.vid ? (
-              <div className="bg-gray-50/85 border px-2 sm:px-4 md:px-7 py-2 sm:py-4 md:py-7 rounded-2xl">
-                <video
-                  autoPlay
-                  disablePictureInPicture
-                  loop
-                  muted
-                  preload="metadata"
-                  playsInline
-                  ref={videoRef}
-                  className="rounded-2xl w-full h-auto shadow-md"
-                >
-                  <source
-                    src={`/video/${project.vid}`}
-                    type="video/mp4"
-                  />
-                  Your browser does not support the video tag.
-                </video>
+                {project.git && (
+                  <Link target="_blank" href={project.git}>
+                    <Button className="!py-6 hover:!bg-black/82 mt-3 !bg-black/90 text-white !cursor-pointer">
+                      Github <FiGithub />
+                    </Button>
+                  </Link>
+                )}
               </div>
-            ) : (
-              <div
-                role="button"
-                tabIndex={0}
-                onClick={() => setLightboxSrc(`/img/${project.img}`)}
-                onKeyDown={(e) =>
-                  e.key === "Enter" &&
-                  setLightboxSrc(`/img/${project.img}`)
-                }
-                className="bg-gray-50/85 border px-2 sm:px-4 md:px-7 py-2 sm:py-4 md:py-7 rounded-2xl cursor-pointer"
-                aria-label="View image larger"
-              >
-                <Image
-                  src={`/img/${project.img}`}
-                  alt={`Screenshot of ${project.name} project`}
-                  width={900}
-                  height={900}
-                  className="rounded-2xl w-full h-auto shadow-md"
-                />
-              </div>
-            )}
 
-            {(project.img2 ?? project.img3) && (
-              <div className="flex justify-center items-center gap-4 mt-10">
-                {project.img2 && (
+              {/* Standard variant: video or main image */}
+              <div className="mt-12">
+                {project.vid && !videoFailed ? (
+                  <div
+                    ref={videoWrapRef}
+                    className="bg-gray-50/85 border px-2 sm:px-4 md:px-7 py-2 sm:py-4 md:py-7 rounded-2xl"
+                  >
+                    <video
+                      ref={videoRef}
+                      poster={`/img/${project.img}`}
+                      src={
+                        srcAttached
+                          ? `/video/${project.vid}`
+                          : undefined
+                      }
+                      disablePictureInPicture
+                      loop
+                      muted
+                      preload="none"
+                      playsInline
+                      onError={() => setVideoFailed(true)}
+                      onClick={handleVideoActivate}
+                      onKeyDown={(e) => {
+                        if (e.key === "Enter" || e.key === " ") {
+                          e.preventDefault();
+                          handleVideoActivate();
+                        }
+                      }}
+                      tabIndex={reduceMotion ? 0 : undefined}
+                      role={reduceMotion ? "button" : undefined}
+                      aria-label={
+                        reduceMotion
+                          ? `Play ${project.name} demo video`
+                          : `${project.name} demo video`
+                      }
+                      className={`rounded-2xl w-full h-auto shadow-md focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black${reduceMotion ? " cursor-pointer" : ""}`}
+                    >
+                      Your browser does not support the video tag.
+                    </video>
+                  </div>
+                ) : (
                   <div
                     role="button"
                     tabIndex={0}
-                    onClick={() =>
-                      setLightboxSrc(`/img/${project.img2}`)
-                    }
+                    onClick={() => setLightboxSrc(`/img/${project.img}`)}
                     onKeyDown={(e) =>
                       e.key === "Enter" &&
-                      setLightboxSrc(`/img/${project.img2}`)
+                      setLightboxSrc(`/img/${project.img}`)
                     }
-                    className="bg-gray-50/85 border px-2 sm:px-3 md:px-5 py-2 sm:py-3 md:py-5 rounded-2xl cursor-pointer"
+                    className="bg-gray-50/85 border px-2 sm:px-4 md:px-7 py-2 sm:py-4 md:py-7 rounded-2xl cursor-pointer"
                     aria-label="View image larger"
                   >
                     <Image
-                      src={`/img/${project.img2}`}
+                      src={`/img/${project.img}`}
                       alt={`Screenshot of ${project.name} project`}
-                      width={650}
-                      height={650}
+                      width={900}
+                      height={900}
+                      sizes="(max-width: 768px) 100vw, 672px"
                       className="rounded-2xl w-full h-auto shadow-md"
                     />
                   </div>
                 )}
-                {project.img3 && (
-                  <div
-                    role="button"
-                    tabIndex={0}
-                    onClick={() =>
-                      setLightboxSrc(`/img/${project.img3}`)
-                    }
-                    onKeyDown={(e) =>
-                      e.key === "Enter" &&
-                      setLightboxSrc(`/img/${project.img3}`)
-                    }
-                    className="bg-gray-50/85 border px-2 sm:px-3 md:px-5 py-2 sm:py-3 md:py-5 rounded-2xl cursor-pointer"
-                    aria-label="View image larger"
-                  >
-                    <Image
-                      src={`/img/${project.img3}`}
-                      alt={`Screenshot of ${project.name} project`}
-                      width={650}
-                      height={650}
-                      className="rounded-2xl w-full h-auto shadow-md"
-                    />
+
+                {(project.img2 ?? project.img3) && (
+                  <div className="flex justify-center items-center gap-4 mt-10">
+                    {project.img2 && (
+                      <div
+                        role="button"
+                        tabIndex={0}
+                        onClick={() =>
+                          setLightboxSrc(`/img/${project.img2}`)
+                        }
+                        onKeyDown={(e) =>
+                          e.key === "Enter" &&
+                          setLightboxSrc(`/img/${project.img2}`)
+                        }
+                        className="bg-gray-50/85 border px-2 sm:px-3 md:px-5 py-2 sm:py-3 md:py-5 rounded-2xl cursor-pointer"
+                        aria-label="View image larger"
+                      >
+                        <Image
+                          src={`/img/${project.img2}`}
+                          alt={`Screenshot of ${project.name} project`}
+                          width={650}
+                          height={650}
+                          sizes="(max-width: 640px) 45vw, 280px"
+                          className="rounded-2xl w-full h-auto shadow-md"
+                        />
+                      </div>
+                    )}
+                    {project.img3 && (
+                      <div
+                        role="button"
+                        tabIndex={0}
+                        onClick={() =>
+                          setLightboxSrc(`/img/${project.img3}`)
+                        }
+                        onKeyDown={(e) =>
+                          e.key === "Enter" &&
+                          setLightboxSrc(`/img/${project.img3}`)
+                        }
+                        className="bg-gray-50/85 border px-2 sm:px-3 md:px-5 py-2 sm:py-3 md:py-5 rounded-2xl cursor-pointer"
+                        aria-label="View image larger"
+                      >
+                        <Image
+                          src={`/img/${project.img3}`}
+                          alt={`Screenshot of ${project.name} project`}
+                          width={650}
+                          height={650}
+                          sizes="(max-width: 640px) 45vw, 280px"
+                          className="rounded-2xl w-full h-auto shadow-md"
+                        />
+                      </div>
+                    )}
                   </div>
                 )}
               </div>
-            )}
-          </div>
 
-          <AnimatePresence>
-            {lightboxSrc ? (
-              <motion.div
-                key="lightbox"
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                exit={{ opacity: 0 }}
-                transition={{ duration: 0.2 }}
-                className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/60"
-                onClick={closeLightbox}
-                role="dialog"
-                aria-modal="true"
-                aria-label="Image preview"
-              >
-                <button
-                  type="button"
-                  onClick={closeLightbox}
-                  className="absolute top-4 right-4 z-10 rounded-full bg-black/50 p-2 text-white hover:bg-black/70 focus:outline-none focus:ring-2 focus:ring-white"
-                  aria-label="Close"
-                >
-                  <X className="size-5" />
-                </button>
-                <motion.div
-                  initial={{ scale: 0.95, opacity: 0 }}
-                  animate={{ scale: 1, opacity: 1 }}
-                  exit={{ scale: 0.95, opacity: 0 }}
-                  transition={{ duration: 0.2 }}
-                  className="relative max-h-[90vh] max-w-[90vw]"
-                  onClick={(e) => e.stopPropagation()}
-                >
-                  <Image
-                    src={lightboxSrc}
-                    alt={`Screenshot of ${project.name} project`}
-                    width={1200}
-                    height={1200}
-                    className="rounded-xl max-h-[90vh] w-auto h-auto object-contain shadow-2xl"
-                  />
-                </motion.div>
-              </motion.div>
-            ) : null}
-          </AnimatePresence>
+              {/* Lightbox */}
+              <AnimatePresence>
+                {lightboxSrc ? (
+                  <motion.div
+                    key="lightbox"
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 1 }}
+                    exit={{ opacity: 0 }}
+                    transition={{ duration: 0.2 }}
+                    className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/60"
+                    onClick={closeLightbox}
+                    role="dialog"
+                    aria-modal="true"
+                    aria-label="Image preview"
+                  >
+                    <button
+                      type="button"
+                      onClick={closeLightbox}
+                      className="absolute top-4 right-4 z-10 rounded-full bg-black/50 p-2 text-white hover:bg-black/70 focus:outline-none focus:ring-2 focus:ring-white"
+                      aria-label="Close"
+                    >
+                      <X className="size-5" />
+                    </button>
+                    <motion.div
+                      initial={{ scale: 0.95, opacity: 0 }}
+                      animate={{ scale: 1, opacity: 1 }}
+                      exit={{ scale: 0.95, opacity: 0 }}
+                      transition={{ duration: 0.2 }}
+                      className="relative max-h-[90vh] max-w-[90vw]"
+                      onClick={(e) => e.stopPropagation()}
+                    >
+                      <Image
+                        src={lightboxSrc}
+                        alt={`Screenshot of ${project.name} project`}
+                        width={1200}
+                        height={1200}
+                        sizes="90vw"
+                        className="rounded-xl max-h-[90vh] w-auto h-auto object-contain shadow-2xl"
+                      />
+                    </motion.div>
+                  </motion.div>
+                ) : null}
+              </AnimatePresence>
+            </>
+          )}
         </motion.div>
       </div>
     </div>

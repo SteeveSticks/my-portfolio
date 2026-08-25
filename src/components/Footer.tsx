@@ -18,7 +18,7 @@ const Footer = () => {
           <a
             rel="noreferrer"
             target="_blank"
-            href="https://x.com/AdebanjoSt63916"
+            href="https://x.com/Midecodez"
           >
             <FaXTwitter className="size-5 text-gray-700 hover:text-gray-600 cursor-pointer" />
           </a>

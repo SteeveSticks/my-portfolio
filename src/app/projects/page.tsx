@@ -50,6 +50,7 @@ export default function AllProjects() {
                       alt={data.name}
                       width={900}
                       height={900}
+                      sizes="(max-width: 640px) 100vw, 380px"
                       className="rounded-2xl w-full h-auto shadow-md"
                     />
                   </motion.div>
