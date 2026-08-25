@@ -38,7 +38,7 @@ const Project = () => {
               className="border rounded-2xl"
             >
               <div className="p-5 space-y-2">
-                <div className="bg-gray-50/85 border rounded-2xl overflow-hidden">
+                <div className="bg-gray-50/85 border rounded-md overflow-hidden">
                   <motion.div
                     whileHover={{ scale: 1.08 }}
                     transition={{ duration: 0.5 }}
@@ -48,7 +48,7 @@ const Project = () => {
                       alt={data.name}
                       width={900}
                       height={900}
-                      className="rounded-2xl w-full h-auto shadow-md"
+                      className="rounded-sm w-full h-auto shadow-md"
                     />
                   </motion.div>
                 </div>
