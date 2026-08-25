@@ -16,7 +16,7 @@ const Hero = () => {
     <div>
       <section
         ref={ref}
-        className="grid justify-center items-center text-center py-24 md:mt-36 space-y-6"
+        className="grid justify-center items-center text-center py-24 md:mt-20 space-y-6"
       >
         <motion.div
           initial={{ opacity: 0, y: 20 }}
