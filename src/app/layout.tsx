@@ -133,7 +133,7 @@ export default function RootLayout({
               sameAs: [
                 "https://github.com/SteeveSticks",
                 "https://x.com/Midecodez",
-                "https://www.linkedin.com/in/stephen-adebanjo-82a6ba359/",
+                "https://www.linkedin.com/in/stephenadebanjo/?isSelfProfile=true",
               ],
             }),
           }}

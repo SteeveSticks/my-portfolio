@@ -34,7 +34,7 @@ const Footer = () => {
           <a
             target="_blank"
             rel="noreferrer"
-            href="https://www.linkedin.com/in/stephen-adebanjo-82a6ba359/"
+            href="https://www.linkedin.com/in/stephenadebanjo/?isSelfProfile=true"
           >
             <FaLinkedin className="size-5 text-gray-700 hover:text-gray-600 cursor-pointer" />
           </a>

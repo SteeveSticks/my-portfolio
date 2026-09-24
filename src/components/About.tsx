@@ -77,7 +77,7 @@ const About = () => {
       <div className="flex justify-center gap-3">
         <div className="grid">
           <Link
-            href="https://www.linkedin.com/in/stephen-adebanjo-82a6ba359/"
+            href="https://www.linkedin.com/in/stephenadebanjo/?isSelfProfile=true"
             target="_blank"
           >
             <motion.div
@@ -116,7 +116,7 @@ const About = () => {
           </Link>
 
           <Link
-            href="https://www.linkedin.com/in/stephen-adebanjo-82a6ba359/"
+            href="https://www.linkedin.com/in/stephenadebanjo/?isSelfProfile=true"
             target="_blank"
           >
             <motion.div
@@ -157,7 +157,7 @@ const About = () => {
 
         <div className="grid">
           <Link
-            href="https://www.linkedin.com/in/stephen-adebanjo-82a6ba359/"
+            href="https://www.linkedin.com/in/stephenadebanjo/?isSelfProfile=true"
             target="_blank"
           >
             <motion.div
