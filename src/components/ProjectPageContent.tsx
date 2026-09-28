@@ -77,8 +77,7 @@ export function ProjectPageContent({
 
   useEffect(() => {
     if (!project.vid) return;
-    const shouldAttach =
-      playIntent || (videoInView && !reduceMotion);
+    const shouldAttach = playIntent || (videoInView && !reduceMotion);
     if (shouldAttach) setSrcAttached(true);
   }, [project.vid, playIntent, videoInView, reduceMotion]);
 
@@ -87,8 +86,7 @@ export function ProjectPageContent({
     if (!video || !project.vid || !srcAttached) return;
 
     video.muted = true;
-    const shouldPlay =
-      videoInView && (!reduceMotion || playIntent);
+    const shouldPlay = videoInView && (!reduceMotion || playIntent);
 
     const syncPlayback = () => {
       if (shouldPlay) {
@@ -101,7 +99,13 @@ export function ProjectPageContent({
     syncPlayback();
     video.addEventListener("canplay", syncPlayback);
     return () => video.removeEventListener("canplay", syncPlayback);
-  }, [project.vid, srcAttached, videoInView, reduceMotion, playIntent]);
+  }, [
+    project.vid,
+    srcAttached,
+    videoInView,
+    reduceMotion,
+    playIntent,
+  ]);
 
   const handleVideoActivate = useCallback(() => {
     if (reduceMotion) setPlayIntent(true);
@@ -135,6 +139,47 @@ export function ProjectPageContent({
             <p className="text-base text-wrap prose font-light text-gray-700 mt-2 flex-grow">
               {project.desc}
             </p>
+
+            {project.category && (
+              <div className="mt-6">
+                <span className="font-bold text-[16px] sm:text-[17px] md:text-[18px]">
+                  Focus
+                </span>
+                <div className="mt-3">
+                  <span className="inline-flex items-center rounded-full bg-[#0F172A] px-3 py-1.5 text-sm font-medium text-white">
+                    {project.category}
+                  </span>
+                </div>
+              </div>
+            )}
+
+            {project.modelStack && project.modelStack.length > 0 && (
+              <div className="mt-6">
+                <span className="font-bold text-[16px] sm:text-[17px] md:text-[18px]">
+                  Model / System Stack
+                </span>
+                <ul className="flex flex-wrap gap-2 mt-3">
+                  {project.modelStack.map((tech) => (
+                    <li key={tech}>
+                      <span className="py-1.5 px-2 bg-[#E1F9DC] text-[#178D00] text-sm !rounded-full">
+                        {tech}
+                      </span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            )}
+
+            {project.outcome && (
+              <div className="mt-6">
+                <span className="font-bold text-[16px] sm:text-[17px] md:text-[18px]">
+                  Outcome
+                </span>
+                <p className="mt-2 text-base text-wrap prose font-light text-gray-700">
+                  {project.outcome}
+                </p>
+              </div>
+            )}
 
             <hr className="mt-8 mb-8" />
 
@@ -237,7 +282,9 @@ export function ProjectPageContent({
                   <div
                     role="button"
                     tabIndex={0}
-                    onClick={() => setLightboxSrc(`/img/${project.img}`)}
+                    onClick={() =>
+                      setLightboxSrc(`/img/${project.img}`)
+                    }
                     onKeyDown={(e) =>
                       e.key === "Enter" &&
                       setLightboxSrc(`/img/${project.img}`)

@@ -19,6 +19,9 @@ export type Project = {
   problem?: string;
   solution?: string;
   pipelines?: Pipeline[];
+  category?: string;
+  modelStack?: string[];
+  outcome?: string;
 };
 
 export const projects: Project[] = [
@@ -27,6 +30,16 @@ export const projects: Project[] = [
     slug: "repomind",
     show: "RepoMind helps you open an unfamiliar GitHub repository or a pile of docs and ask questions in plain language.",
     desc: "RepoMind is an AI-powered tool that helps you index a GitHub repository or a pile of docs and ask questions in plain language. Answers come back with the exact source file and line, so you can check the claim.",
+    category: "AI System",
+    modelStack: [
+      "RAG",
+      "Embeddings",
+      "PGVector",
+      "Document QA",
+      "Source-grounded answers",
+    ],
+    outcome:
+      "Grounded answers from code and docs with source attribution for faster trust and onboarding.",
     lang: [
       "Next.js",
       "Python",
@@ -50,6 +63,16 @@ export const projects: Project[] = [
     slug: "rag-pipelines",
     show: "Google Colab notebooks that retrieve, ground, and answer from your own documents.",
     desc: "A set of RAG pipelines I built in Google Colab. Each card is a notebook you can open, with a short note on what that pipeline does.",
+    category: "RAG Pipeline",
+    modelStack: [
+      "Hybrid retrieval",
+      "Query rewriting",
+      "Embedding evaluation",
+      "Document routing",
+      "OCR + grounded QA",
+    ],
+    outcome:
+      "Improved document understanding and answer quality through hybrid retrieval, metadata routing, and benchmarking.",
     lang: ["Python", "LlamaIndex", "OpenAI", "Hugging Face", "Gemini", "Gradio", "BM25", "Llamaindex", "PyMuPDF", "LangChain", "OpenSource Model"],
     img: "rag-pipelines.png",
     pipelines: [

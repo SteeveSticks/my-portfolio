@@ -25,34 +25,44 @@ const About = () => {
             About
           </div>
           <p>
-            I&apos;m Stephen, an AI & Machine Learning Engineer with
-            over 3 years of experience and a strong drive for building
-            impactful web experiences.
+            I&apos;m Stephen, an AI &amp; Machine Learning Engineer
+            building end-to-end systems that turn raw data, documents,
+            and user questions into reliable AI experiences.
           </p>
           <p className="mt-2">
-            I’ve built and shipped real-world AI products, but I’m
-            just getting started. I love solving real problems through
-            tech, learning fast, and creating beautiful,
-            high-performing user interfaces.
+            My work sits at the intersection of machine learning,
+            product thinking, and full‑stack engineering. I design
+            retrieval pipelines, evaluate embeddings and prompting
+            strategies, build RAG systems, and ship polished
+            interfaces that make those models useful in the real
+            world.
           </p>
           <p className="mt-2">
-            I’ve collaborated with major infrastructure companies like{" "}
+            I&apos;ve built and shipped AI-powered products across
+            document understanding, retrieval, and workflow
+            automation, and I enjoy solving the hard parts of
+            real-world ML systems: benchmarking model behavior,
+            improving grounding, and translating technical complexity
+            into dependable product experiences.
+          </p>
+          <p className="mt-2">
+            I&apos;ve collaborated with major infrastructure companies
+            like{" "}
             <Link
               href="https://www.linkedin.com/company/externhq/posts/?feedView=all"
               className="hover:text-green-900"
             >
               <strong>Extern</strong>
             </Link>{" "}
-            on advanced full-stack projects. From diving deep into AI
-            architecture to collaborating with project leads and
-            company directors, I know how to thrive in a team
-            environment and ship products that meet core business
-            goals.
+            on advanced product and AI engineering work. From
+            architecture to implementation and iteration, I enjoy
+            shipping systems that balance performance, usability, and
+            business impact.
           </p>
           <p className="mt-2">
-            I’m also actively building in public. Connecting with my
-            230+ followers on X and learning from top mentors in the
-            space—including{" "}
+            I&apos;m also actively building in public. Connecting with
+            my 230+ followers on X and learning from top mentors in
+            the space—including{" "}
             <Link href="https://x.com/marc_louvion">
               <strong>@Marc Lou,</strong>
             </Link>{" "}
@@ -66,11 +76,12 @@ const About = () => {
             <Link href="https://x.com/levelsio">
               <strong>@levelsio</strong>
             </Link>
-            —has fundamentally shaped how I think about
-            product-building, growth, and shipping fast. 
+            —has shaped how I think about building AI products and
+            shipping fast with strong fundamentals.
           </p>
-          <p>I also love music and play both a
-            keyboard and a drum.</p>
+          <p className="mt-2">
+            I also love music and play both a keyboard and a drum.
+          </p>
         </motion.div>
       </div>
 
